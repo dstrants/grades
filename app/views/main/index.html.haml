@@ -1,1 +1,38 @@
-%h1.is-size-2 Hello how are you?
+%section.section
+  %h1.is-size-2 Hello how are you?
+%section.section
+  %table.table.is-fullwidth
+    %thead
+      %th Name
+      %th Code
+      %th Ects
+      %th Semester
+      %th Grade
+    %tbody
+    - Lesson.all.each do |les|
+      %tr
+        %td= les.name
+        %td= les.code
+        %td= les.ects
+        %td= les.semester
+        %td= les.grade
+    %thead
+      %th Summary
+      %th  -
+      %th= Lesson.sum(:ects)
+      %th  -
+      %th= Lesson.sum(:grade)
+%section.section
+  %div.tile.is-vertical.is-ancestor
+    %div.tile.is-vertical.is-5
+      %div.tile
+        %div.tile.is-parent.is-vertical
+          %article.tile.is-child.notification.is-primary
+            %p.title Your average is:
+            %p.subtitle= avg_calc.nil? ? 'add some passed lessons':avg_calc.to_s.first(4)
+          %article.tile.is-child.notification.is-info
+            %p.subtitle Total Classes #{Lesson.count} (#{Lesson.where(grade: [5..10]).count}/#{Lesson.where(grade: [0..4]).count})
+            %p.subtitle Obligatory Classes #{Lesson.where(type: 1).count}
+            %p.subtitle Basic Classes #{Lesson.where(type: 2).count}
+            %p.subtitle General Classes #{Lesson.where(type: 3).count}
+            %p.subtitle Special Classes #{Lesson.where(type: 4).count}

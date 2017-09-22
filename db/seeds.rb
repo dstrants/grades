@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'yaml'
+
+@thing = YAML.load_file('config/lessons.yml')
+@thing['lessons'].each do |les|
+  Lesson.create!(name: les['name'], code: les['code'], ects: les['ects'],
+                 semester: les['semester'], ltype: les['type'])
+end

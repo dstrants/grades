@@ -25,3 +25,8 @@
       code: 'ΜΑΥ202'
       type: 1
       ects: 6
+    - name: 'Γενικά Μαθηματικά ΙΙ'
+      semester: 2
+      code: 'ΜΑΥ203'
+      type: 1
+      ects: 6

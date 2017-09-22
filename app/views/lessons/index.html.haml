@@ -21,7 +21,7 @@
       %th  -
       %th= Lesson.sum(:ects)
       %th  -
-      %th= Lesson.sum(:grade)
+      %th= Lesson.average(:grade).to_s.first(4)
 %section.section
   %div.tile.is-vertical.is-ancestor
     %div.tile.is-vertical.is-5

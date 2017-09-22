@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/' => 'main#index'
+  get '/lessons' => 'lessons#index'
 end

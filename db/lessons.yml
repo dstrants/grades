@@ -1,0 +1,27 @@
+---
+  lessons:
+    - name: 'Γενική Φυσική Ι'
+      semester: 1
+      ects: 8
+      code: 'ΓΘΥ201'
+      type: 1
+    - name: 'Γενικά Μαθηματικά Ι'
+      semester: 1
+      ects: 6
+      code: 'ΜΑΥ201'
+      type: 1
+    - name: 'Εργαστήριο Εφαρμοσμένης Πληροφορικής'
+      semester: 1
+      code: 'ΗΥΥ501'
+      type: 1
+      ects: 5
+    - name: 'Χημεία'
+      semester: 1
+      code: 'XMY201'
+      type: 1
+      ects: 5
+    - name: 'Εφαρμοσμένα Μαθηματικά'
+      semester: 1
+      code: 'ΜΑΥ202'
+      type: 1
+      ects: 6

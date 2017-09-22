@@ -1,11 +1,14 @@
 %div.container
   = form_tag '/lessons/submit_grades', method: 'post' do
-    = fields_for :lessons do
+    %div.field.is-grouped.is-grouped-multiline
       - Lesson.all.each do |les|
-        %div.field
-          %label.label #{les.name}
+        %div.tile.is-2
+          %label.label #{les.name.first(10)}
           %div.select.is-info
             %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}
               - for i in 1..10
-                %option{value: i } #{i}
+                - if les.grade == i
+                  %option{value: i, selected: 'selected'} #{i}
+                - else
+                  %option{value: i } #{i}
     = submit_tag

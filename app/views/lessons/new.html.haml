@@ -1,14 +1,24 @@
 %div.container
   = form_tag '/lessons/submit_grades', method: 'post' do
-    %div.field.is-grouped.is-grouped-multiline
-      - Lesson.all.each do |les|
-        %div.tile.is-2
-          %label.label #{les.name.first(10)}
-          %div.select.is-info
-            %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}
-              - for i in 1..10
-                - if les.grade == i
-                  %option{value: i, selected: 'selected'} #{i}
-                - else
-                  %option{value: i } #{i}
+    .tabs
+      %ul
+        - for i in 1..8
+          %li
+            %a{href: "#tabs-#{i}"} Semester #{i}
+      -for i in 1..8
+        %div.field{id: "tabs-#{i}"}
+          - Lesson.where(semester: i).each do |les|
+            %div.tile.is-2
+              %label.label #{les.name.first(10)}
+              %div.select.is-info
+                %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}
+                  - for i in 1..10
+                    - if les.grade == i
+                      %option{value: i, selected: 'selected'} #{i}
+                    - else
+                      %option{value: i } #{i}
     = submit_tag
+:javascript
+  $( function() {
+  $( "#tabs" ).tabs();
+  } );

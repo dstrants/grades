@@ -30,3 +30,128 @@
       code: 'ΜΑΥ203'
       type: 1
       ects: 6
+    - name: 'Γενική Φυσική ΙΙ'
+      semester: 2
+      code: 'ΓΘΥ202'
+      type: 1
+      ects: 8
+    - name: 'Γενικό Εργαστήριο'
+      semester: 2
+      code: 'ΓΘΥ501'
+      type: 1
+      ects: 5
+    - name: 'Γενική Φυσική ΙΙΙ'
+      semester: 2
+      code: 'ΓΘΥ203'
+      type: 1
+      ects: 8
+    - name: 'Προγραμματισμός Υπολογιστών & Υπολογιστική Φυσική'
+      semester: 2
+      code: 'ΗΥΥ201'
+      type: 1
+      ects: 5
+    - name: 'Εργαστήριο Ηλεκτρικών Κυκλωμάτων'
+      semester: 3
+      code: 'ΕΦΥ501'
+      type: 1
+      ects: 5
+    - name: 'Εφαρμοσμένα Μαθηματικά ΙΙ'
+      semester: 3
+      code: 'ΜΑΥ204'
+      type: 1
+      ects: 6
+    - name: 'Φυσική Ατμόσφαιρας & Περιβάλλοντος'
+      semester: 3
+      code: 'ΑΠΥ201'
+      type: 1
+      ects: 5
+    - name: 'Γενική Φυσική IV'
+      semester: 3
+      code: 'ΓΘΥ204'
+      type: 1
+      ects: 8
+    - name: 'Γενικά Μαθηματικά ΙΙΙ'
+      semester: 3
+      code: 'ΜΑΥ206'
+      type: 1
+      ects: 6
+    - name: 'Θεωρητική Μηχανική'
+      semester: 4
+      code: 'ΓΘΥ206'
+      type: 1
+      ects: 8
+    - name: 'Μαθηματικές Μέθοδοι Φυσικής I'
+      semester: 4
+      code: 'ΜΑΥ205'
+      type: 1
+      ects: 6
+    - name: 'Γενική Φυσική V'
+      semester: 4
+      code: 'ΓΘΥ205'
+      type: 1
+      ects: 8
+    - name: 'Ηλεκτρονική'
+      semester: 4
+      code: 'ΗΤΥ201'
+      type: 1
+      ects: 5
+    - name: 'Εργαστήριο Οπτικής'
+      semester: 4
+      code: 'ΓΘΥ502'
+      type: 1
+      ects: 4
+    - name: 'Εργαστήριο Ηλεκτρονικής'
+      semester: 5
+      code: 'ΗΤΥ502'
+      type: 1
+      ects: 4
+    - name: 'Κβαντομηχανική Ι'
+      semester: 5
+      code: 'ΓΘΥ207'
+      type: 1
+      ects: 8
+    - name: 'Αστρονομία'
+      semester: 5
+      code: 'ΑΑΥ201'
+      type: 1
+      ects: 7
+    - name: 'Πυρηνική Φυσική'
+      semester: 5
+      code: 'ΠΣY201'
+      type: 1
+      ects: 7
+    - name: 'Εργαστήριο Aτομικής Φυσικής'
+      semester: 5
+      code: 'ΓΘΥ503'
+      type: 1
+      ects: 4
+    - name: 'Ηλεκτρομαγνητισμός'
+      semester: 6
+      code: 'ΓΘΥ210'
+      type: 1
+      ects: 8
+    - name: 'Κβαντομηχανική ΙΙ'
+      semester: 6
+      code: 'ΓΘΥ208'
+      type: 1
+      ects: 5
+    - name: 'Στατιστική Φυσική'
+      semester: 6
+      code: 'ΓΘΥ209'
+      type: 1
+      ects: 7
+    - name: 'Εργαστήριο Πυρηνικής Φυσικής Ι'
+      semester: 6
+      code: 'ΠΣΥ501'
+      type: 1
+      ects: 4
+    - name: 'Εργαστήριο Δομής των Υλικών'
+      semester: 6
+      code: 'ΣΥΥ501'
+      type: 1
+      ects: 4
+    - name: 'Φυσική Στερεάς Κατάστασης'
+      semester: 7
+      code: 'ΣΥΥ201'
+      type: 1
+      ects: 8

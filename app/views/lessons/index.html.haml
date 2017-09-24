@@ -9,13 +9,22 @@
       %th Semester
       %th Grade
     %tbody
-    - Lesson.all.each do |les|
-      %tr
-        %td= les.name
-        %td= les.code
-        %td= les.ects
-        %td= les.semester
-        %td= les.grade
+    - Lesson.all.group_by(&:semester).each do |sem|
+      %thead
+        %th.has-text-centered{ colspan: '5'} Semester #{sem[0]}
+      - sem[1].each do |les|
+        %tr
+          %td= les.name
+          %td= les.code
+          %td= les.ects
+          %td= les.semester
+          %td= les.grade
+      %thead
+        %th
+        %th
+        %th= Lesson.where(semester: sem[0], grade: [5..10]).sum(:ects)
+        %th
+        %th= Lesson.where(semester: sem[0], grade: [5..10]).average(:grade).to_s.first(4)
     %thead
       %th Summary
       %th  -

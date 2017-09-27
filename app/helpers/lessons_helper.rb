@@ -1,6 +1,6 @@
 module LessonsHelper
   def avg_calc
-    @lessons = Lesson.where(grade: [5..10])
+    @lessons = Lesson.where(grade: [5..10], selected: true)
     @sum = 0
     @lessons.each do |les|
       @sum += les.ects * les.grade.to_f

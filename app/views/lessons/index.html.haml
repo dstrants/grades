@@ -9,7 +9,7 @@
       %th Semester
       %th Grade
     %tbody
-    - Lesson.all.group_by(&:semester).each do |sem|
+    - Lesson.where(selected: true).group_by(&:semester).each do |sem|
       %thead
         %th.has-text-centered{ colspan: '5'} Semester #{sem[0]}
       - sem[1].each do |les|
@@ -28,9 +28,9 @@
     %thead
       %th Summary
       %th  -
-      %th= Lesson.sum(:ects)
+      %th= Lesson.where(selected: true).sum(:ects)
       %th  -
-      %th= Lesson.average(:grade).to_s.first(4)
+      %th= Lesson.where(selected: true).average(:grade).to_s.first(4)
 %section.section
   %div.tile.is-vertical.is-ancestor
     %div.tile.is-vertical.is-5
@@ -40,11 +40,11 @@
             %p.title Your average is:
             %p.subtitle= avg_calc.nil? ? 'add some passed lessons':avg_calc.to_s.first(4)
           %article.tile.is-child.notification.is-info
-            %p.subtitle Total Classes #{Lesson.count} (#{Lesson.where(grade: [5..10]).count}/#{Lesson.where(grade: [0..4]).count})
-            %p.subtitle Obligatory Classes #{Lesson.where(ltype: 1).count}
-            %p.subtitle Basic Classes #{Lesson.where(ltype: 2).count}
-            %p.subtitle General Classes #{Lesson.where(ltype: 3).count}
-            %p.subtitle Special Classes #{Lesson.where(ltype: 4).count}
+            %p.subtitle Total Classes #{Lesson.where(selected: true).count} (#{Lesson.where(selected: true, grade: [5..10]).count}/#{Lesson.where(selected: true, grade: [0..4]).count})
+            %p.subtitle Obligatory Classes #{Lesson.where(selected: true, ltype: 1).count}
+            %p.subtitle Basic Classes #{Lesson.where(selected: true, ltype: 2).count}
+            %p.subtitle General Classes #{Lesson.where(selected: true, ltype: 3).count}
+            %p.subtitle Special Classes #{Lesson.where(selected: true, ltype: 4).count}
         %div.tile.is-parent
           %article.tile.is-child.notification.is-success
             %p.title Graduation?

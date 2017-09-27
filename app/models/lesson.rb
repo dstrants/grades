@@ -2,10 +2,15 @@ class Lesson < ApplicationRecord
   before_save :default_values
   def default_values
     self.grade ||= 0
+    if self.ltype == 1
+      self.selected = true
+    else
+      self.selected ||= false
+    end
   end
 
   def self.thesis?
-    Lesson.where(type: 5, grade: [5..10]).count == 1
+    Lesson.where(type: 5, grade: [5..10], selected: true).count == 1
   end
 
   def basics?

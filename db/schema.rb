@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922080724) do
+ActiveRecord::Schema.define(version: 20170927075932) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "code"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170922080724) do
     t.datetime "updated_at", null: false
     t.string "type"
     t.integer "ltype"
+    t.boolean "selected"
   end
 
 end

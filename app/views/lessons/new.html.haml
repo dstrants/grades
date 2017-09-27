@@ -1,12 +1,12 @@
 %div.container
   = form_tag '/lessons/submit_grades', method: 'post' do
-    %input.button.is-primary.is-pulled-right{type: 'submit'} Save
+    %input.button.is-primary.is-pulled-right{type: 'submit'}
     .columns
       .column.is-half.is-offset-one-quarter.box.has-text-centered{id: 'accordion'}
         -for i in 1..8
           %h3.title Semester #{i}
           %div
-            - Lesson.where(semester: i).each do |les|
+            - Lesson.where(semester: i, selected: true).each do |les|
               %label.label #{les.name}
               %div.select.is-info
                 %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}

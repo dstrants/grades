@@ -41,7 +41,7 @@
             %p.subtitle= avg_calc.nil? ? 'add some passed lessons':avg_calc.to_s.first(4)
           %article.tile.is-child.notification.is-info
             %p.subtitle Total Classes #{Lesson.count} (#{Lesson.where(grade: [5..10]).count}/#{Lesson.where(grade: [0..4]).count})
-            %p.subtitle Obligatory Classes #{Lesson.where(type: 1).count}
-            %p.subtitle Basic Classes #{Lesson.where(type: 2).count}
-            %p.subtitle General Classes #{Lesson.where(type: 3).count}
-            %p.subtitle Special Classes #{Lesson.where(type: 4).count}
+            %p.subtitle Obligatory Classes #{Lesson.where(ltype: 1).count}
+            %p.subtitle Basic Classes #{Lesson.where(ltype: 2).count}
+            %p.subtitle General Classes #{Lesson.where(ltype: 3).count}
+            %p.subtitle Special Classes #{Lesson.where(ltype: 4).count}

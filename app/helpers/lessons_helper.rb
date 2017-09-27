@@ -15,7 +15,7 @@ module LessonsHelper
 
   # Basic Selection Classes
   def basic_ch_count
-    Lesson.where(grade: [5..10], ltye: 2).count
+    Lesson.where(grade: [5..10], ltype: 2).count
   end
 
   # General Selection Classes

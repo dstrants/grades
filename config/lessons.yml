@@ -374,4 +374,169 @@
       semester: 8
       code: 'ΔΨΕ502'
       type: 3
-      ects: 4  
+      ects: 4
+    - name: 'Βιοφυσική'
+      semester: 7
+      code: 'ΒΙΕ103'
+      type: 4
+      ects: 4
+    - name: 'Πλανητικά Συστήματα και Διαστημική Εξερεύνηση'
+      semester: 7
+      code: 'ΑΑΕ103'
+      type: 4
+      ects: 4
+    - name: 'Εργαστήριο Πυρηνικής Φυσικής ΙΙ'
+      semester: 7
+      code: 'ΠΣΕ401'
+      type: 4
+      ects: 4
+    - name: 'Γαλαξιακή και Εξωγαλαξιακή Αστρονομία'
+      semester: 7
+      code: 'ΑΑΕ202'
+      type: 4
+      ects: 4
+    - name: 'Φυσική και Τεχνολογία Ημιαγωγικών Διατάξεων'
+      semester: 7
+      code: 'ΣΥΕ206'
+      type: 4
+      ects: 4
+    - name: 'Θεωρητική Στατιστική Φυσική Στερεάς Κατάστασης'
+      semester: 7
+      code: 'ΓΘΕ206'
+      type: 4
+      ects: 4
+    - name: 'Διάδοση Ηλεκτρομαγνητικών Κυμάτων και Εφαρμογές'
+      semester: 7
+      code: 'ΓΘΕ208'
+      type: 4
+      ects: 4
+    - name: 'Γραμμικά Κυκλώματα'
+      semester: 7
+      code: 'ΕΦΕ202'
+      type: 4
+      ects: 4
+    - name: 'Κρυσταλλοδομή και Εφαρμογές'
+      semester: 7
+      code: 'ΣΥΕ204'
+      type: 4
+      ects: 4
+    - name: 'Μαγνητικά Υλικά και Εφαρμογές'
+      semester: 7
+      code: 'ΣΥΕ205'
+      type: 4
+      ects: 4
+    - name: 'Μικροηλεκτρονική'
+      semester: 7
+      code: 'ΗΤΕ201'
+      type: 4
+      ects: 4
+    - name: 'Κβαντομηχανική III'
+      semester: 7
+      code: 'ΓΘΕ205'
+      type: 4
+      ects: 4
+    - name: 'Μαθηματικές μέθοδοι Φυσικής ΙΙ'
+      semester: 7
+      code: 'ΜΑΕ202'
+      type: 4
+      ects: 4
+    - name: 'Ψηφιακά Συστήματα'
+      semester: 7
+      code: 'ΗΥΕ201'
+      type: 4
+      ects: 4
+    - name: 'Εργαστήριο Διδακτικής της Φυσικής'
+      semester: 7
+      code: 'ΔΨΕ501'
+      type: 4
+      ects: 4
+    - name: 'Πτυχιακή Εργασία-Εισαγωγή στην ερευνητική Μεθοδολογία'
+      semester: 7
+      code: 'ΑΜΕ701'
+      type: 5
+      ects: 8
+    - name: 'Κοσμολογία'
+      semester: 8
+      code: 'ΑΑΕ102'
+      type: 4
+      ects: 4
+    - name: 'Εισαγωγή στη Φυσική Ιονισμένων Αερίων (Φυσική Πλάσματος)'
+      semester: 8
+      code: 'ΓΘΕ211'
+      type: 4
+      ects: 4
+    - name: 'Ραδιοαστρονομία – Αστρονομία σε Μη Οπτικά Μήκη Κύματος'
+      semester: 8
+      code: 'ΑΑΕ101'
+      type: 4
+      ects: 4
+    - name: 'Θέματα Πυρηνικής θεωρίας'
+      semester: 8
+      code: 'ΠΣΕ101'
+      type: 4
+      ects: 4
+    - name: 'Πειραματική Θεμελίωση της Φυσικής Στοιχειωδών Σωματιδίων'
+      semester: 8
+      code: 'ΠΣΕ207'
+      type: 4
+      ects: 4
+    - name: 'Επιταχυντές και Ανιχνευτές στην Πυρηνική και Σωματιδιακή Φυσική'
+      semester: 8
+      code: 'ΠΣΕ206'
+      type: 4
+      ects: 4
+    - name: 'Φυσική Ακτινοβολιών και Εφαρμογές Ραδιοϊσοτόπων'
+      semester: 8
+      code: 'ΒΙΕ201'
+      type: 4
+      ects: 4
+    - name: 'Κβαντική Οπτική - Laser'
+      semester: 8
+      code: 'ΓΘΕ209'
+      type: 4
+      ects: 4
+    - name: 'Ατμοσφαιρική Διάχυση και Διασπορά'
+      semester: 8
+      code: 'ΑΠΕ102'
+      type: 4
+      ects: 4
+    - name: 'Παγκόσμιες Περιβαλλοντικές Μεταβολές'
+      semester: 8
+      code: 'ΕΠΕ101'
+      type: 4
+      ects: 4
+    - name: 'Εργαστήριο Ηλεκτρονικών Κυκλωμάτων'
+      semester: 8
+      code: 'ΗΤΕ501'
+      type: 4
+      ects: 4
+    - name: 'Προβλήματα Κβαντικής Φυσικής'
+      semester: 8
+      code: 'ΓΘΕ204'
+      type: 4
+      ects: 4
+    - name: 'Μη Γραμμικά Κυκλώματα'
+      semester: 8
+      code: 'ΕΦΕ203'
+      type: 4
+      ects: 4
+    - name: 'Γενική Θεωρία Σχετικότητας'
+      semester: 8
+      code: 'ΓΘΕ210'
+      type: 4
+      ects: 4
+    - name: 'Αρχιτεκτονική Υπολογιστών'
+      semester: 8
+      code: 'ΗΥΕ202'
+      type: 4
+      ects: 4
+    - name: 'Εργαστήριο Φυσικής Στερεάς Κατάστασης'
+      semester: 8
+      code: 'ΣΥΕ402'
+      type: 4
+      ects: 4
+    - name: 'Μηχανική των Ρευστών'
+      semester: 8
+      code: 'ΓΘΕ211'
+      type: 4
+      ects: 4

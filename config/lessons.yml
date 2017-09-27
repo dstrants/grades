@@ -155,3 +155,223 @@
       code: 'ΣΥΥ201'
       type: 1
       ects: 8
+    - name: 'Αστροφυσική'
+      semster: 7
+      code: 'ΑΑΕ201'
+      type: 2
+      ects: 5
+    - name: 'Φυσική Στοιχειωδών Σωματιδίων'
+      semester: 7
+      code: 'ΠΣΕ204'
+      type: 2
+      ects: 5
+    - name: 'Ανανεώσιμες πηγές ενέργειας'
+      semester: 7
+      code: 'ΕΠΕ101'
+      type: 2
+      ects: 5
+    - name: 'Ηλεκτρονικά Κυκλώματα'
+      semester: 7
+      code: 'ΗΤΕ203'
+      type: 2
+      ects: 5
+    - name: 'Δομικές Ιδιότητες Στερεών'
+      semester: 7
+      code: 'ΣΥΕ203'
+      type: 2
+      ects: 5
+    - name: 'Ατμοσφαιρικό Περιβάλλον'
+      semester: 7
+      code: 'ΑΠΕ202'
+      type: 2
+      ects: 5
+    - name: 'Μη Γραμμικά Δυναμικά Συστήματα'
+      semester: 7
+      code: 'ΜΑΕ204'
+      type: 2
+      ects: 5
+    - name: 'Υπολογιστική Φυσική και Εφαρμογές'
+      semester: 7
+      code: 'ΗΥΕ401'
+      type: 2
+      ects: 5
+    - name: 'Εισαγωγή στη Διδακτική της Φυσικής'
+      semester: 8
+      code: 'ΔΨΕ401'
+      type: 2
+      ects: 5
+    - name: 'Παρατηρησιακή Αστρονομία'
+      semester: 8
+      code: 'ΑΑΕ601'
+      type: 2
+      ects: 5
+    - name: 'Πυρηνική Φυσική'
+      semester: 8
+      code: 'ΠΣΕ201'
+      type: 2
+      ects: 5
+    - name: 'Θέματα Τηλεπικοινωνιών'
+      semester: 8
+      code: 'ΗΤΕ202'
+      type: 2
+      ects: 5
+    - name: 'Φυσική Στερεάς Κατάστασης II'
+      semester: 8
+      code: 'ΣΥΕ207'
+      type: 2
+      ects: 5
+    - name: 'Φυσική των Νανοδομών και Επιφανειών'
+      semester: 8
+      code: 'ΕΦΕ207'
+      type: 2
+      ects: 5
+    - name: 'Χαμιλτονιανή Μηχανική'
+      semester: 8
+      code: 'ΓΘΕ202'
+      type: 2
+      ects: 5
+    - name : 'Μετρολογία - Συστήματα Ποιότητας'
+      semester: 7
+      code: 'ΓΘE201'
+      type: 3
+      ects: 4
+    - name: 'Ιατρική Φυσική- Δοσιμετρία'
+      semester: 7
+      code: 'ΒΙΕ102'
+      type: 3
+      ects: 4
+    - name: 'Ιστορία και Εξέλιξη των Ιδεών στη Φυσική'
+      semester: 7
+      code: 'ΙΦE101'
+      type: 3
+      ects: 4
+    - name: 'Εμβιοηλεκτρομαγνητισμός'
+      semester: 7
+      code: 'ΒΙΕ101'
+      type: 3
+      ects: 4
+    - name: 'Φυσικοχημεία'
+      semester: 7
+      code: 'ΧΜΕ201'
+      type: 3
+      ects: 4
+    - name: 'Φυσική των Μετάλλων'
+      semester: 7
+      code: 'ΣΥΕ201'
+      type: 3
+      ects: 4
+    - name: 'Παραγωγή Ενέργειας από Πυρηνικές και Συμβατικές Πηγές'
+      semester: 7
+      code: 'ΕΠΕ202'
+      type: 3
+      ects: 4
+    - name: 'Φυσική και Φιλοσοφία'
+      semester: 7
+      code: 'ΙΦΕ102'
+      type: 3
+      ects: 4
+    - name: 'Ξένη Γλώσσα (Αγγλικά)'
+      semester: 7
+      code: 'ΓΛΕ201'
+      type: 3
+      ects: 4
+    - name: 'Θέματα Εφαρμοσμένης Φυσικής'
+      semester: 7
+      code: 'ΕΦΕ201'
+      type: 3
+      ects: 4
+    - name: 'Πρακτική Άσκηση'
+      semester: 7
+      code: 'ΑΜΕ501'
+      type: 3
+      ects: 4
+    - name: 'Επιχειρηματικότητα και Καινοτομία Τεχνολογιών και Υλικών'
+      semester: 8
+      code: 'ΚΟE601'
+      type: 3
+      ects: 4
+    - name: 'Τεχνικές Χαρακτηρισμού και Υλικά στη Συντήρηση Έργων Τέχνης'
+      semester: 8
+      code: 'EΦΕ205'
+      type: 3
+      ects: 4
+    - name: 'Αριθμητική Ανάλυση'
+      semester: 8
+      code: 'ΜΑΕ203'
+      type: 3
+      ects: 4
+    - name: 'Πιθανότητες - Στατιστική'
+      semester: 8
+      code: 'MAΕ201'
+      type: 3
+      ects: 4
+    - name: 'Γεωφυσική – Σεισμολογία'
+      semester: 8
+      code: 'ΓΓΕ401'
+      type: 3
+      ects: 4
+    - name: 'Κοσμική Ακτινοβολία'
+      semester: 8
+      code: 'ΠΣΕ203'
+      type: 3
+      ects: 4
+    - name: 'Φυσική του Ανθρωπίνου Σώματος'
+      semester: 8
+      code: 'ΒΙΕ105'
+      type: 3
+      ects: 4
+    - name: 'Γεωμετρική Οπτική - Εφαρμογές'
+      semester: 8
+      code: 'ΓΘΕ207'
+      type: 3
+      ects: 4
+    - name: 'Βιολογία'
+      semester: 8
+      code: 'ΒΙE103'
+      type: 3
+      ects: 4
+    - name: 'Φυσική των Υλικών'
+      semester: 8
+      code: 'ΣΥΕ202'
+      type: 3
+      ects: 4
+    - name: 'Φυσική των Υλικών'
+      semester: 8
+      code: 'ΣΥΕ202'
+      type: 3
+      ects: 4
+    - name: 'Μετεωρολογία'
+      semester: 8
+      code: 'ΑΠΕ201'
+      type: 3
+      ects: 4
+    - name: 'Ηλεκτροακουστική'
+      semester: 8
+      code: 'ΕΦΕ204'
+      type: 3
+      ects: 4
+    - name: 'Ραδιενέργεια Περιβάλλοντος'
+      semester: 8
+      code: 'ΠΣΕ202'
+      type: 3
+      ects: 4
+    - name: 'Φωτονική και Εφαρμογές'
+      semester: 8
+      code: 'ΕΦΕ206'
+      type: 3
+      ects: 4
+    - name: 'Χαοτική Δυναμική'
+      semester: 8
+      code: 'ΓΘΕ212'
+      type: 3
+      ects: 4
+    - name: 'Μεθοδολογία, Παρουσίαση Θεμάτων Φυσικής'
+      semester: 8
+      code: 'ΑΜΕ201'
+      type: 3
+      ects: 4
+    - name: 'Εργαστήριο Εκπαιδευτικής Τεχνολογίας'
+      semester: 8
+      code: 'ΔΨΕ502'
+      type: 3
+      ects: 4  

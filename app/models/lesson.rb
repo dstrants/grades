@@ -4,7 +4,7 @@ class Lesson < ApplicationRecord
     self.grade ||= 0
   end
 
-  def Lesson.thesis?
+  def self.thesis?
     Lesson.where(type: 5, grade: [5..10]).count == 1
   end
 

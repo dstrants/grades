@@ -45,3 +45,8 @@
             %p.subtitle Basic Classes #{Lesson.where(ltype: 2).count}
             %p.subtitle General Classes #{Lesson.where(ltype: 3).count}
             %p.subtitle Special Classes #{Lesson.where(ltype: 4).count}
+        %div.tile.is-parent
+          %article.tile.is-child.notification.is-success
+            %p.title Graduation?
+            %p.subtitle= Lesson.thesis?
+            %p.subtitle= Lesson.no_thesis?

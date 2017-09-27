@@ -28,9 +28,9 @@
     %thead
       %th Summary
       %th  -
-      %th= Lesson.where(selected: true).sum(:ects)
+      %th= Lesson.where(selected: true, grade: [5..10]).sum(:ects)
       %th  -
-      %th= Lesson.where(selected: true).average(:grade).to_s.first(4)
+      %th= Lesson.where(selected: true, grade: [5..10]).average(:grade).to_s.first(4)
 %section.section
   %div.tile.is-vertical.is-ancestor
     %div.tile.is-vertical.is-5

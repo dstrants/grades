@@ -1,8 +1,14 @@
-%section.section
-  = form_tag '/lessons/select', method: 'post' do
+#les
+  %section.section
     %h2.title= title
-    .field
-      .control
-        .select.is-primary
-          = select_tag :lesson, options_from_collection_for_select(lessons, :id, :name)
-          %input.button.is-primary{type: 'submit'}
+    %ul.add-lessons
+      - lessons.where(selected: true).each do |les|
+        %li
+          %i.fa.fa-check.has-text-primary
+          = les.name
+    = form_tag '/lessons/select', method: 'post' do
+      .field
+        .control
+          .select.is-primary
+            = select_tag :lesson, options_from_collection_for_select(lessons, :id, :name)
+            %input.button.is-primary{type: 'submit', id: 'set'}

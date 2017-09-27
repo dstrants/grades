@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
   def select
     @les = Lesson.find(params[:lesson])
     @les.update_attribute(:selected, true) unless @les.selected
-    redirect_to action: 'new'
+    redirect_to action: 'add'
   end
 
   def delete
@@ -32,11 +32,10 @@ class LessonsController < ApplicationController
     @specials = Lesson.where(ltype: 4, selected: true)
     @thesis = Lesson.where(ltype: 5, selected: true)
   end
-  
+
   def remove
     @les = Lesson.find(params[:lesson])
     @les.update_attribute(:selected, false) if @les.selected
     redirect_to action: 'new'
   end
-
 end

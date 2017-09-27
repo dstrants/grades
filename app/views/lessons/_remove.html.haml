@@ -1,6 +1,12 @@
 %section.section
-  = form_tag '/lessons/remove', method: 'post' do
+  .content
     %h2.title= title
+    %ul.add-lessons
+      - lessons.each do |les|
+        %li
+          %i.fa.fa-check.has-text-primary
+          = les.name
+  = form_tag '/lessons/remove', method: 'post' do
     .field
       .control
         .select.is-primary

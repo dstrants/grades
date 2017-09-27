@@ -2,7 +2,7 @@ class Lesson < ApplicationRecord
   before_save :default_values
   def default_values
     self.grade ||= 0
-    if self.ltype == 1
+    if ltype == 1
       self.selected = true
     else
       self.selected ||= false

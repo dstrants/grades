@@ -13,5 +13,7 @@
       .navbar-menu
         %a.navbar-item{href: "/lessons"}
           Home
+        - if user_signed_in?
+          = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'
     %p.notice= notice
     = yield

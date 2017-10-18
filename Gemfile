@@ -20,12 +20,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'activeadmin'
 gem 'airrecord'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bulma-rails'
 gem 'chartkick'
 gem 'devise'
 gem 'easy_as_pie'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'friendly_id', '~> 5.1.0'
 gem 'groupdate'
+gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
@@ -36,6 +38,7 @@ gem 'active_bootstrap_skin'
 gem 'cancancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'

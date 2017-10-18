@@ -1,13 +1,14 @@
-%h2 Resend confirmation instructions
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
+.column.is-3.is-offset-5
+  %h2 Resend confirmation instructions
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+    = devise_error_messages!
 
-  .field
-    = f.label :email
-    %br
-    = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? resource.unconfirmed_email : resource.email)
+    .field
+      %p.control.has-icons-left
+        = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? resource.unconfirmed_email : resource.email), class: 'input', placeholder: 'Email'
+        %span.icon.is-small.is-left
+          %i.fa.fa-envelope
+    .control
+      = f.submit "Resend confirmation instructions", class: 'button is-primary'
 
-  .actions
-    = f.submit "Resend confirmation instructions"
-
-= render "users/shared/links"
+  = render "users/shared/links"

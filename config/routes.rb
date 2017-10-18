@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/lessons' => 'lessons#index'
   post '/lessons/submit_grades' => 'lessons#submit_grades'
   get '/lessons/new' => 'lessons#new'
@@ -6,5 +7,5 @@ Rails.application.routes.draw do
   post '/lessons/select' => 'lessons#select'
   get 'lessons/delete' => 'lessons#delete'
   post '/lessons/remove' => 'lessons#remove'
-  #root '/'
+  root 'main#index'
 end

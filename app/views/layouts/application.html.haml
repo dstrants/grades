@@ -11,16 +11,23 @@
       %p.level-item.has-text-centered
         %a.link.is-info{href: root_path} Home
       %p.level-item.has-text-centered
+        %a.link.is-info{href: '#'} About
+      %p.level-item.has-text-centered
         %a.link.is-info{href: lessons_path} Lessons
       %p.level-item.has-text-centered
         =image_tag 'logo', style: "height: 30px;"
       %p.level-item.has-text-centered
         %a.link.is-info{href: lessons_add_path} Add
       %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_add_path} Remove
+        %a.link.is-info{href: lessons_delete_path} Remove
       %p.level-item.has-text-centered
-        - if user_signed_in?
-          = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'
+        .navbar-item.has-dropdown.is-hoverable
+          %a.navbar-link
+            Docs
+            .navbar-dropdown
+              %a.navbar-item Overview
+              - if user_signed_in?
+                = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'
     %p.notice= notice
     .columns.is-12#all
       .column.is-2

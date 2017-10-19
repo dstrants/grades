@@ -9,13 +9,15 @@
   %body
     %nav.level{"aria-label" => "main navigation", role: "navigation"}
       %p.level-item.has-text-centered
-        %a.link.is-info Home
+        %a.link.is-info{href: root_path} Home
       %p.level-item.has-text-centered
-        %a.link.is-info Menu
+        %a.link.is-info{href: lessons_path} Lessons
       %p.level-item.has-text-centered
         =image_tag 'logo', style: "height: 30px;"
       %p.level-item.has-text-centered
-        %a.link.is-info Reservations
+        %a.link.is-info{href: lessons_add_path} Add
+      %p.level-item.has-text-centered
+        %a.link.is-info{href: lessons_add_path} Remove
       %p.level-item.has-text-centered
         - if user_signed_in?
           = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'

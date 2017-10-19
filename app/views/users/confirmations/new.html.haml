@@ -1,4 +1,4 @@
-.column.is-3.is-offset-5
+.column.is-3.is-offset-3
   %h2 Resend confirmation instructions
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
     = devise_error_messages!

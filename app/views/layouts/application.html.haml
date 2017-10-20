@@ -7,30 +7,62 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.level{"aria-label" => "dropdown main navigation", role: "navigation"}
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: root_path} Home
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: '#'} About
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_path} Lessons
-      %p.level-item.has-text-centered
-        =image_tag 'logo', style: "height: 30px;"
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_add_path} Add
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_delete_path} Remove
-      .navbar-item.has-dropdown.is-hoverable
-        %a.navbar-link.has-text-primary
-          User
-        .navbar-dropdown
-          - if user_signed_in?
-            = link_to 'Profile', edit_user_registration_path, class: 'navbar-item'
-            = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'
-          - else
-            = link_to "Log In", new_user_session_path,
-           class: 'navbar-item'
-            = link_to 'Sign Up', new_user_registration_path, class: 'navbar-item'
+    %head
+      %section.hero.is-primary.is-medium
+        .hero-head
+          %nav.navbar#top-nav
+            .container
+              .navbar-brand
+                %a.navbar-item
+                  =image_tag 'logo', id: 'logo'
+                  %h3#logo-title WiSeInno
+                %span.navbar-burger.burger{"data-target" => "navbarMenuHeroA"}
+                  %span
+                  %span
+                  %span
+              #navbarMenuHeroA.navbar-menu
+                .navbar-end
+                  %a.navbar-item{href: root_path}
+                    Home
+                  %a.navbar-item{href: lessons_path}
+                    GPA
+                  %a.navbar-item{href: about_path}
+                    About
+                  %a.navbar-item
+                    %i.fa.fa-github
+                  %a.navbar-item
+                    %i.fa.fa-twitter
+                  - if user_signed_in?
+                    %span.navbar-item
+                      %a.button.is-primary.is-inverted{href: destroy_user_session_path}
+                        Log Out
+                  - else
+                    %span.navbar-item
+                      %a.button.is-primary.is-inverted{ href: new_user_session_path }
+                        Log In
+        / Hero content: will be in the middle
+        .hero-body
+          .container.has-text-centered
+            %h1.title
+              GPA Calculator
+            %h2.subtitle
+              Be In Control
+        / Hero footer: will stick at the bottom
+        - if controller_name == 'lessons'
+          .hero-foot
+            %nav.tabs
+              .container
+                %ul
+                  %li.is-active
+                    %a Overview
+                  %li
+                    %a Per Semester
+                  %li
+                    %a Stats
+                  %li
+                    %a Add
+                  %li
+                    %a Remove
     %p.notice= notice
     =yield
   %footer.footer

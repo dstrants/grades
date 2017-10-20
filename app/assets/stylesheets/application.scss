@@ -10,12 +10,28 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+#top-nav{
+  background-color: $blue !important;
+}
 
-
-.logo{
-  height: 40px;
-  width: 40px;
-  border-radius: 20%;
+#logo{
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+#logo-title{
+  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-left: 5px;
+}
+a.navbar-item{
+  &:hover{
+    background-color: $blue;
+  }
 }
 .rounded{
   border-radius: 8px;
@@ -27,8 +43,5 @@
 #image-home-left{
   border-radius: 8px;
   margin-right: 120px;
-}
-
-#slogan-home-right{
-  vertical-align: middle;
+  padding: 20px;
 }

@@ -32,7 +32,44 @@
            class: 'navbar-item'
             = link_to 'Sign Up', new_user_registration_path, class: 'navbar-item'
     %p.notice= notice
-    =yield
+    .columns.is-12#all
+      .column.is-2
+        %aside.menu#nav
+          %p.menu-label
+            Lessons
+          %ul.menu-list
+            %li
+              %a
+                %i.fa.fa-file-text
+                Summary
+            %li
+              %a
+                %i.fa.fa-percent
+                Stats
+            %li
+              %a
+                %i.fa.fa-plus
+                Add
+            %li
+              %a
+                %i.fa.fa-minus
+                Remove
+          %p.menu-label
+            Administration
+          %ul.menu-list
+            %li
+              %a Team Settings
+            %li
+              %a Manage Your Team
+              %ul
+                %li
+                  %a Members
+                %li
+                  %a Plugins
+                %li
+                  %a Add a member
+      .column.is-10
+        = yield
   %footer.footer
     .container
       .content.has-text-centered

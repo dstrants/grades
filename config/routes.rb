@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post '/lessons/select' => 'lessons#select'
   get 'lessons/delete' => 'lessons#delete'
   post '/lessons/remove' => 'lessons#remove'
+  get '/about' => 'main#about'
   root 'main#index'
 end

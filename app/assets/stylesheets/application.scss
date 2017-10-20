@@ -2,9 +2,15 @@
  *= require_tree .
  *= require_self
  */
-@import "bulma";
+ $blue: #008ed6;
+
+ $primary: $blue;
+
+ @import "bulma";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+
 
 .logo{
   height: 40px;
@@ -16,4 +22,13 @@
 }
 #nav{
   padding-left: 5px;
+}
+
+#image-home-left{
+  border-radius: 8px;
+  margin-right: 120px;
+}
+
+#slogan-home-right{
+  vertical-align: middle;
 }

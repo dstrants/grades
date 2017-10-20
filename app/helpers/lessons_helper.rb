@@ -8,6 +8,10 @@ module LessonsHelper
     @avg = @sum / @lessons.sum(:ects) unless @lessons.sum(:ects).zero?
   end
 
+  def sem_avg(i)
+    Lesson.where(semester: i, grade: [5..10]).average(:grade).to_s.first(4)
+  end
+
   # Obligatory Classes
   def oblig_count
     Lesson.where(grade: [5..10], ltype: 1).count

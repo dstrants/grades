@@ -1,0 +1,31 @@
+.tabs.is-fullwidth
+  %ul
+    %li
+      %a{href: ("/lessons/semesters/#{params[:id].to_i-1}" if params[:id].to_i > 1)}
+        %span.icon
+          %i.fa.fa-angle-left
+        %span Previous
+      %li
+        %a{href: '/lessons/semesters'}
+          %span.icon
+            %i.fa.fa-angle-up
+          %span Back
+    %li
+      %a{href: ("/lessons/semesters/#{params[:id].to_i+1}" if params[:id].to_i < 8)}
+        %span Next
+        %span.icon
+          %i.fa.fa-angle-right
+%h2.has-text-centered.is-size-3 Semester #{params[:id]}
+.columns
+  .column.is-3.is-offset-1
+    .box
+      %h4.has-text-info Average: #{sem_avg(params[:id].to_i)}
+      %h4.has-text-success Passed: #{Lesson.where(semester: params[:id].to_i, grade: [5..10]).count}
+  .column.is-3
+    .box
+      %h4.has-text-danger Owned: #{Lesson.where(semester: params[:id].to_i, grade: [0..4]).count}
+      %h4.has-text-warning.has-text-weight-bold Ects: #{Lesson.where(semester: params[:id].to_i, grade: [5..10]).sum(:ects)}
+  .column.is-3
+    .box
+      %h4.has-text-primary Obligatory: #{Lesson.where(semester: params[:id].to_i, ltype: 1, selected: true).count}
+      %h4 Choise: #{Lesson.where(semester: params[:id].to_i, ltype: [2..5], selected: true).count}

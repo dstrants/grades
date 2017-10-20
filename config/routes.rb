@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'lessons/delete' => 'lessons#delete'
   post '/lessons/remove' => 'lessons#remove'
   get 'lessons/semesters' => 'lessons#semesters'
+  get 'lessons/semesters/:id' => 'lessons#show_semester'
   get 'lessons/stats' => 'lessons#stats'
   get '/about' => 'main#about'
   root 'main#index'

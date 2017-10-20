@@ -7,6 +7,8 @@ class LessonsController < ApplicationController
 
   def semesters; end
 
+  def stats; end
+
 
   def add
     @basics = Lesson.where(ltype: 2)

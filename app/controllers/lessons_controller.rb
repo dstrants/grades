@@ -5,6 +5,9 @@ class LessonsController < ApplicationController
     @lessons = Lesson.all
   end
 
+  def semesters; end
+
+
   def add
     @basics = Lesson.where(ltype: 2)
     @generals = Lesson.where(ltype: 3)

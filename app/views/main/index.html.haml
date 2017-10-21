@@ -1,8 +1,9 @@
 - provide(:title, 'Home')
-.columns
-  .column.is-4.is-offset-3.has-text-centered
-    %h1.is-size-2 Motivated by
-    %h2.is-size-4 Modern Student Life
-  .column.is-4
-    %figure.image.is-square
-      = image_tag 'home_left', id: 'image-home-left'
+.container
+  .columns
+    .column.is-4.is-offset-3.has-text-centered
+      %h1.is-size-2.home-title Motivated by
+      %h2.is-size-4.home-title Modern Student Life
+    .column.is-4
+      %figure.image.is-square
+        = image_tag 'home_left', id: 'image-home-left'

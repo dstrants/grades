@@ -11,6 +11,19 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+//Mixins
+@mixin vertical-alignment($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//Style
+.home-title{
+  @include vertical-alignment();
+}
 #top-nav{
   background-color: $blue !important;
 }
@@ -44,5 +57,4 @@ a.navbar-item{
 #image-home-left{
   border-radius: 8px;
   margin-right: 120px;
-  padding: 20px;
 }

@@ -28,9 +28,9 @@
                     GPA
                   %a.navbar-item{href: about_path}
                     About
-                  %a.navbar-item
+                  %a.navbar-item{href: 'https://twitter.com/wise_inno'}
                     %i.fa.fa-github
-                  %a.navbar-item
+                  %a.navbar-item{href: 'https://github.com/dstrants'}
                     %i.fa.fa-twitter
                   - if user_signed_in?
                     %span.navbar-item
@@ -63,7 +63,6 @@
                     %a{href: lessons_add_path} Add
                   %li
                     %a{href: lessons_delete_path} Remove
-    %p.notice= notice
     =yield
   %footer.footer
     .container
@@ -79,3 +78,6 @@
           %br
           Picks by
           %a freepick
+  -if notice
+    %script
+      new Noty({type: 'success', layout: 'topRight',text: '#{notice}'}).show();

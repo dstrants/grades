@@ -13,6 +13,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.slick
+//= require noty/lib/noty
 //= require turbolinks
 //= require_tree .
 $( function() {

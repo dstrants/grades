@@ -12,6 +12,7 @@
 //= require jquery3
 //= require jquery-ui
 //= require jquery_ujs
+//= require jquery.slick
 //= require turbolinks
 //= require_tree .
 $( function() {

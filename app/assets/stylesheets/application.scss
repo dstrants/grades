@@ -7,9 +7,10 @@
 
  $primary: $blue;
 
- @import "bulma";
+@import "bulma";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'slick';
 
 //Mixins
 @mixin vertical-alignment($position: relative) {
@@ -57,4 +58,14 @@ a.navbar-item{
 #image-home-left{
   border-radius: 8px;
   margin-right: 120px;
+}
+#next{
+  a{
+  border-radius: 50%;
+  }
+}
+#prev{
+  a{
+  border-radius: 50%;
+  }
 }

@@ -4,3 +4,17 @@
 #all{
   min-height: 600px;
 }
+.carousel{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .box{
+    margin: 10px !important;
+  }
+}
+.pagination-link{
+  button{
+    border: none;
+    background-color: #fff;
+    color: #008ed6;
+  }
+}

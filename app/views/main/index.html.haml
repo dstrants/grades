@@ -1,9 +1,94 @@
 - provide(:title, 'Home')
 .container
   .columns
-    .column.is-4.is-offset-3.has-text-centered
+    .column.is-4.is-offset-1.has-text-centered
       %h1.is-size-2.home-title Motivated by
       %h2.is-size-4.home-title Modern Student Life
-    .column.is-4
+    .column.is-4.is-offset-1
       %figure.image.is-square
         = image_tag 'home_left', id: 'image-home-left'
+.container
+  .columns
+    .column.is-1.is-offset-1.has-text-centered#prev
+      %a.button.is-primary.home-title
+        %i.fa.fa-angle-left
+    .carousel.column.is-7
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title GPA Calculator
+            %p Calculate your current or would be gpa fast and at ease
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title Stats
+            %p See how you are going and what are your weak spots in fancy colourful graphs
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title Per Semester Analysis
+            %p Check each semester analysed. All your semester data at the edge of your finger
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title Summary
+            %p A summarizing table demonstating all your grades!
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title Graduation
+            %p Do you wander if you are elegible for graduation! The answer is here!
+      .box.column.is-2
+        %article.media
+          .media-content
+            %h5.title Plans for more
+            %p We plan to add more functionality like forecasting your eramus and practise.
+    .column.is-1.has-text-centered#next
+      %a.button.is-primary.home-title.next
+        %i.fa.fa-angle-right
+  .columns
+    .column.is-6.is-offset-4
+      %nav.pagination.is-small
+        %ul.pagination-list
+
+
+:javascript
+  $(document).ready(function(){
+    $('.carousel').slick({
+      dots: true,
+      dotsClass: 'pagination-list',
+      variableWidth: false,
+      adaptiveHeight: false,
+      arrows: true,
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 1,
+      prevArrow: $('#prev'),
+      nextArrow: $('#next'),
+      appendDots: $('.pagination-list'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+        ]
+        })
+  });
+:javascript
+  $(document).ready(function(){
+    $('.pagination-list li').addClass('pagination-link');
+  });

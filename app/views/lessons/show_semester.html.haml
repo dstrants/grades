@@ -1,7 +1,7 @@
-.tabs.is-fullwidth
+.tabs.is-fullwidth#sem
   %ul
     %li
-      %a{href: ("/lessons/semesters/#{params[:id].to_i-1}" if params[:id].to_i > 1)}
+      %a{href: ("/lessons/semesters/#{params[:id].to_i-1}\#sem" if params[:id].to_i > 1)}
         %span.icon
           %i.fa.fa-angle-left
         %span Previous
@@ -11,13 +11,13 @@
             %i.fa.fa-angle-up
           %span Back
     %li
-      %a{href: ("/lessons/semesters/#{params[:id].to_i+1}" if params[:id].to_i < 8)}
+      %a{href: ("/lessons/semesters/#{params[:id].to_i+1}\#sem" if params[:id].to_i < 8)}
         %span Next
         %span.icon
           %i.fa.fa-angle-right
 %h2.has-text-centered.is-size-3 Semester #{params[:id]}
 .columns
-  .column.is-3.is-offset-1
+  .column.is-3.is-offset-2
     .box
       %h4.has-text-info Average: #{sem_avg(params[:id].to_i)}
       %h4.has-text-success Passed: #{Lesson.where(semester: params[:id].to_i, grade: [5..10]).count}
@@ -29,3 +29,25 @@
     .box
       %h4.has-text-primary Obligatory: #{Lesson.where(semester: params[:id].to_i, ltype: 1, selected: true).count}
       %h4 Choise: #{Lesson.where(semester: params[:id].to_i, ltype: [2..5], selected: true).count}
+.columns
+  .column.is-6.is-offset-3
+    %table.table
+      %thead
+        %th Name
+        %th Code
+        %th Ects
+        %th Semester
+        %th Grade
+      %tbody
+      - Lesson.where(selected: true, semester: params[:id], selected: true).each do |les|
+        %tr
+          %td= les.name
+          %td= les.code
+          %td= les.ects
+          %td= les.semester
+          %td= les.grade
+      %tfooter
+        %th
+        %th
+        %th{colspan: 2} #{Lesson.where(selected: true, semester: params[:id], selected: true, grade: [5..10]).sum(:ects)} / #{Lesson.where(selected: true, semester: params[:id], selected: true).sum(:ects)}
+        %th= Lesson.where(selected: true, semester: params[:id], selected: true).average(:grade).to_s.first(4)

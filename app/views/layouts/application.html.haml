@@ -7,33 +7,63 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.level{"aria-label" => "main navigation", role: "navigation"}
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: root_path} Home
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_path} Lessons
-      %p.level-item.has-text-centered
-        =image_tag 'logo', style: "height: 30px;"
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_add_path} Add
-      %p.level-item.has-text-centered
-        %a.link.is-info{href: lessons_add_path} Remove
-      %p.level-item.has-text-centered
-        - if user_signed_in?
-          = link_to "Sign out", destroy_user_session_path, class: 'navbar-item'
-    %p.notice= notice
-    .columns.is-12#all
-      .column.is-2
-        %aside.menu#nav
-          %p.menu-label
-            General
-          %ul.menu-list
-            %li
-              %a{href: edit_user_registration_path} Profile
-            %li
-              %a About
-      .column.is-10
-        = yield
+    %head
+      %section.hero.is-primary.is-medium
+        .hero-head
+          %nav.navbar#top-nav
+            .container
+              .navbar-brand
+                %a.navbar-item
+                  =image_tag 'logo', id: 'logo'
+                  %h3#logo-title WiSeInno
+                %span.navbar-burger.burger{"data-target" => "navbarMenuHeroA"}
+                  %span
+                  %span
+                  %span
+              #navbarMenuHeroA.navbar-menu
+                .navbar-end
+                  %a.navbar-item{href: root_path}
+                    Home
+                  %a.navbar-item{href: lessons_path}
+                    GPA
+                  %a.navbar-item{href: about_path}
+                    About
+                  %a.navbar-item{href: 'https://twitter.com/wise_inno'}
+                    %i.fa.fa-github
+                  %a.navbar-item{href: 'https://github.com/dstrants'}
+                    %i.fa.fa-twitter
+                  - if user_signed_in?
+                    %span.navbar-item
+                      %a.button.is-primary.is-inverted{href: destroy_user_session_path}
+                        Log Out
+                  - else
+                    %span.navbar-item
+                      %a.button.is-primary.is-inverted{ href: new_user_session_path }
+                        Log In
+        / Hero content: will be in the middle
+        .hero-body
+          .container.has-text-centered
+            %h1.title
+              GPA Calculator
+            %h2.subtitle
+              Be In Control
+        / Hero footer: will stick at the bottom
+        - if controller_name == 'lessons'
+          .hero-foot
+            %nav.tabs
+              .container
+                %ul
+                  %li
+                    %a{href: lessons_path} Overview
+                  %li
+                    %a{href: lessons_semesters_path} Semesters
+                  %li
+                    %a{href: lessons_stats_path} Stats
+                  %li
+                    %a{href: lessons_add_path} Add
+                  %li
+                    %a{href: lessons_delete_path} Remove
+    =yield
   %footer.footer
     .container
       .content.has-text-centered
@@ -42,4 +72,12 @@
           %strong GradesUp
           is built by
           %a{href: 'http://strdi.me'} dstrants
-          using rails and bulma
+          with
+          %i.fa.fa-heart.has-text-danger
+          rails & bulma
+          %br
+          Picks by
+          %a freepick
+  -if notice
+    %script
+      new Noty({type: 'success', layout: 'topRight',text: '#{notice}'}).show();

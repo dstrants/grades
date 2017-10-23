@@ -1,7 +1,44 @@
 - provide(:title, 'Home')
-.column.container.is-desktop.is-12
-  %section.hero.is-info.rounded#tl
-    .hero-body
-      .container
-        %h1.title GradesUp
-        %h2.subtitle Home
+.container
+  .columns
+    .column.is-4.is-offset-1.has-text-centered
+      %h1.is-size-2.home-title Motivated by
+      %h2.is-size-4.home-title Modern Student Life
+    .column.is-4.is-offset-1
+      %figure.image.is-square
+        = image_tag 'home_left', id: 'image-home-left'
+
+.container
+  .columns
+    .column.is-8.is-offset-2
+      .content
+        %blockquote
+          We can't solve problems by using the same kind of thinking we used when we created them.
+          %br
+          -
+          %strong.has-text-centered A. Einstein
+.container.features
+  .is-centered#feat
+    %h2.has-text-centered.is-size-2.has-text-grey What do we do
+  .columns.has-equal-heights
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-superscript.fa-4x.home-title.has-text-danger
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 GPA Calculator
+        .box-body
+          %p We can't solve problems by using the same kind of thinking we used when we created them
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-percent.fa-4x.home-title.has-text-info
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 Stats
+        .box-body
+          %p See how you are going and what are your weak spots in fancy colourful graphs
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-graduation-cap.fa-4x.home-title.has-text-success
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 Graduation
+        .box-body
+          %p Do you wander if you are elegible for graduation? You got the answer!

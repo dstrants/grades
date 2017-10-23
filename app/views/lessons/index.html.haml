@@ -1,55 +1,57 @@
 .column.container.is-12
   %section.hero.is-light.rounded
     .hero-body
-      .container
+      .container.has-text-centered
         %h1.title Lesson List
-%section.section
-  %table.table.is-fullwidth
-    %thead
-      %th Name
-      %th Code
-      %th Ects
-      %th Semester
-      %th Grade
-    %tbody
-    - Lesson.where(selected: true).group_by(&:semester).each do |sem|
+.column.is-10.is-offset-2
+  %section.section
+    %table.table
       %thead
-        %th.has-text-centered{ colspan: '5'} Semester #{sem[0]}
-      - sem[1].each do |les|
-        %tr
-          %td= les.name
-          %td= les.code
-          %td= les.ects
-          %td= les.semester
-          %td= les.grade
+        %th Name
+        %th Code
+        %th Ects
+        %th Semester
+        %th Grade
+      %tbody
+      - Lesson.where(selected: true).group_by(&:semester).each do |sem|
+        %thead
+          %th.has-text-centered{ colspan: '5'} Semester #{sem[0]}
+        - sem[1].each do |les|
+          %tr
+            %td= les.name
+            %td= les.code
+            %td= les.ects
+            %td= les.semester
+            %td= les.grade
+        %thead
+          %th
+          %th
+          %th= Lesson.where(semester: sem[0], grade: [5..10]).sum(:ects)
+          %th
+          %th= Lesson.where(semester: sem[0], grade: [5..10]).average(:grade).to_s.first(4)
       %thead
-        %th
-        %th
-        %th= Lesson.where(semester: sem[0], grade: [5..10]).sum(:ects)
-        %th
-        %th= Lesson.where(semester: sem[0], grade: [5..10]).average(:grade).to_s.first(4)
-    %thead
-      %th Summary
-      %th  -
-      %th= Lesson.where(selected: true, grade: [5..10]).sum(:ects)
-      %th  -
-      %th= Lesson.where(selected: true, grade: [5..10]).average(:grade).to_s.first(4)
+        %th Summary
+        %th  -
+        %th= Lesson.where(selected: true, grade: [5..10]).sum(:ects)
+        %th  -
+        %th= Lesson.where(selected: true, grade: [5..10]).average(:grade).to_s.first(4)
 %section.section
   %div.tile.is-vertical.is-ancestor
-    %div.tile.is-vertical.is-5
+    %div.tile.is-vertical.is-8
       %div.tile
         %div.tile.is-parent.is-vertical
           %article.tile.is-child.notification.is-primary
-            %p.title Your average is:
-            %p.subtitle= avg_calc.nil? ? 'add some passed lessons':avg_calc.to_s.first(4)
+            %p.title Μέσος Όρος:
+            %p.subtitle= avg_calc.nil? ? 'Πρόσθεσε Μαθήματα':avg_calc.to_s.first(4)
           %article.tile.is-child.notification.is-info
-            %p.subtitle Total Classes #{Lesson.where(selected: true).count} (#{Lesson.where(selected: true, grade: [5..10]).count}/#{Lesson.where(selected: true, grade: [0..4]).count})
-            %p.subtitle Obligatory Classes #{Lesson.where(selected: true, ltype: 1).count}
-            %p.subtitle Basic Classes #{Lesson.where(selected: true, ltype: 2).count}
-            %p.subtitle General Classes #{Lesson.where(selected: true, ltype: 3).count}
-            %p.subtitle Special Classes #{Lesson.where(selected: true, ltype: 4).count}
+            %p.subtitle Σύνολο Μαθημάτων: #{Lesson.where(selected: true).count}
+            %p.subtitle Περασμένα/Χρωστούμενα: (#{Lesson.where(selected: true, grade: [5..10]).count}/#{Lesson.where(selected: true, grade: [0..4]).count})
+            %p.subtitle Υποχρεωτικά: #{Lesson.where(selected: true, ltype: 1).count}
+            %p.subtitle Bασικής Επιλογής: #{Lesson.where(selected: true, ltype: 2).count}
+            %p.subtitle Γενικής Επιλογής: #{Lesson.where(selected: true, ltype: 3).count}
+            %p.subtitle Ειδικής Επιλογής: #{Lesson.where(selected: true, ltype: 4).count}
         %div.tile.is-parent
-          %article.tile.is-child.notification.is-success
-            %p.title Graduation?
-            %p.subtitle= Lesson.thesis?
-            %p.subtitle= Lesson.no_thesis?
+          %article.tile.is-child.notification{class: Lesson.thesis? || Lesson.no_thesis? ? 'is-success' : 'is-danger'}
+            %p.title Δυνατότα Αποφοίτησης?
+            %p.subtitle Πτυχιακή #{Lesson.thesis?}
+            %p.subtitle Χωρίς Πτυχιακή #{Lesson.no_thesis?}

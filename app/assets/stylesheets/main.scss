@@ -1,6 +1,48 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 #all{
   min-height: 600px;
+}
+/*
+.carousel{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .box{
+    margin: 10px !important;
+  }
+}
+.pagination-link{
+  button{
+    border: none;
+    background-color: #fff;
+    color: #008ed6;
+  }
+}
+*/
+#feat{
+  margin-bottom: 50px;
+}
+.features{
+  margin: 50px 100px 50px 100px !important;
+}
+.box.has-icon.is-centered{
+  min-height: 225px;
+  .box-icon{
+    width: 110px;
+    height: 110px;
+    border: 1px solid hsl(0, 0%, 96%);
+     box-shadow: -10px -10px 5px darken( hsl(0, 0%, 96%), 20%);
+    border-radius: 55px;
+    background-color: hsl(0, 0%, 96%);
+    position: relative;
+    display: block;
+    margin: auto;
+    i {
+      position: relative;
+      display: block;
+      margin: auto;
+    }
+  }
+  h3.box-title{
+    margin-top: -45px;
+    margin-bottom: 10px;
+  }
 }

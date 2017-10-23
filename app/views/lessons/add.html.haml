@@ -1,5 +1,10 @@
-%div.container
-  = render partial: 'selection', locals: {title: 'Βασικής Επιλογής', lessons: @basics }
-  = render partial: 'selection', locals: {title: 'Γενικής Επιλογής', lessons: @generals }
-  = render partial: 'selection', locals: {title: 'Ειδικής Επιλογής', lessons: @specials }
-  = render partial: 'selection', locals: {title: 'Πτυχιακή Εργασία', lessons: @thesis }
+.columns
+  .column.is-half
+    = render partial: 'selection', locals: {title: 'Βασικής Επιλογής', lessons: @basics }
+  .column.is-half
+    = render partial: 'selection', locals: {title: 'Γενικής Επιλογής', lessons: @generals }
+.columns
+  .column.is-half
+    = render partial: 'selection', locals: {title: 'Ειδικής Επιλογής', lessons: @specials }
+  .column.is-half
+    = render partial: 'selection', locals: {title: 'Πτυχιακή Εργασία', lessons: @thesis }

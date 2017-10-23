@@ -1,19 +1,82 @@
 /*
+ *= require noty/lib/noty.css
  *= require_tree .
  *= require_self
  */
+ $blue: #008ed6;
+ $red: #E74C3C;
+
+ $primary: $blue;
+
 @import "bulma";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'slick';
 
-.logo{
-  height: 40px;
-  width: 40px;
-  border-radius: 20%;
+//Mixins
+@mixin vertical-alignment($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//Style
+.home-title{
+  @include vertical-alignment();
+}
+#top-nav{
+  background-color: $blue !important;
+}
+
+#logo{
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+#logo-title{
+  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-left: 5px;
+}
+a.navbar-item{
+  &:hover{
+    background-color: $blue;
+  }
 }
 .rounded{
   border-radius: 8px;
 }
 #nav{
   padding-left: 5px;
+}
+
+#image-home-left{
+  border-radius: 8px;
+  margin-right: 120px;
+}
+#next{
+  a{
+  border-radius: 50%;
+  }
+}
+#prev{
+  a{
+  border-radius: 50%;
+  }
+}
+
+.devise-form{
+  margin-top: 20px;
+  padding: 50px 100px 50px 100px;
+  img{
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
 }

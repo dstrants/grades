@@ -1,5 +1,10 @@
-%div.container
-  = render partial: 'remove', locals: {title: 'Βασικής Επιλογής', lessons: @basics } unless @basics.empty?
-  = render partial: 'remove', locals: {title: 'Γενικής Επιλογής', lessons: @generals } unless @generals.empty?
-  = render partial: 'remove', locals: {title: 'Ειδικής Επιλογής', lessons: @specials } unless @specials.empty?
-  = render partial: 'remove', locals: {title: 'Πτυχιακή Εργασία', lessons: @thesis } unless @thesis.empty?
+.columns
+  .column.is-half
+    = render partial: 'remove', locals: {title: 'Βασικής Επιλογής', lessons: @basics } unless @basics.empty?
+  .column.is-half
+    = render partial: 'remove', locals: {title: 'Γενικής Επιλογής', lessons: @generals } unless @generals.empty?
+.columns
+  .column.is-half
+    = render partial: 'remove', locals: {title: 'Ειδικής Επιλογής', lessons: @specials } unless @specials.empty?
+  .column.is-half
+    = render partial: 'remove', locals: {title: 'Πτυχιακή Εργασία', lessons: @thesis } unless @thesis.empty?

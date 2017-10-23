@@ -1,6 +1,14 @@
 // Place all the styles related to the lessons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//Mixins
+@mixin vertical-alignment($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 .add-lessons{
   margin: 10px 10px 10px 0px !important;
   list-style: none !important;

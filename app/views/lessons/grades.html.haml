@@ -6,7 +6,7 @@
         -for i in 1..8
           %h3.title Semester #{i}
           %div
-            - Lesson.where(semester: i, selected: true).each do |les|
+            - current_user.lessons.where(semester: i, selected: true).each do |les|
               %label.label #{les.name}
               %div.select.is-info
                 %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}

@@ -13,7 +13,7 @@
         %th Semester
         %th Grade
       %tbody
-      - current_user.lessons.where(selected: true).group_by(&:semester).each do |sem|
+      - @list.each do |sem|
         %thead
           %th.has-text-centered{ colspan: '5'} Semester #{sem[0]}
         - sem[1].each do |les|

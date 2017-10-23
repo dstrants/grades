@@ -1,0 +1,21 @@
+.box.column.is-5.is-offset-3.devise-form.is-centered
+  = image_tag 'logo', class: 'is-centered'
+  %h2 Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      %p.control.has-icons-left
+        = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'input'
+        %span.icon.is-small.is-left
+          %i.fa.fa-envelope
+    .field
+      %p.control.has-icons-left
+        = f.password_field :password, autocomplete: "off", class: 'input', placeholder: 'Password'
+        %span.icon.is-small.is-left
+          %i.fa.fa-lock
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .control.is-grouped.is-grouped-right.is-pulled-right
+      = f.submit "Log in", class: 'button is-primary'
+  = render "users/shared/links"

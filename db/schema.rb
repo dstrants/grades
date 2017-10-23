@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018153644) do
+ActiveRecord::Schema.define(version: 20171023091505) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "code"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20171018153644) do
     t.string "type"
     t.integer "ltype"
     t.boolean "selected"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

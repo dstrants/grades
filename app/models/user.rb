@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
 
   def create_user_lessons
-    Lesson.where(ltype: 1).each do |les|
+    Lesson.all.each do |les|
       @lesson = lessons.new
       @lesson = les
       @lesson.save!

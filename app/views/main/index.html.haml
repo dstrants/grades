@@ -7,106 +7,38 @@
     .column.is-4.is-offset-1
       %figure.image.is-square
         = image_tag 'home_left', id: 'image-home-left'
+
 .container
   .columns
-    .column.is-5.is-offset-3
+    .column.is-8.is-offset-2
       .content
         %blockquote
           We can't solve problems by using the same kind of thinking we used when we created them.
           %br
           -
           %strong.has-text-centered A. Einstein
-.container
-  .columns
-    .column.is-1.is-offset-2.has-text-centered#prev
-      %a.button.is-primary.home-title
-        %i.fa.fa-angle-left
-    .carousel.column.is-5
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title GPA Calculator
-            %p Calculate your current or would be gpa fast and at ease
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title Stats
-            %p See how you are going and what are your weak spots in fancy colourful graphs
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title Per Semester Analysis
-            %p Check each semester analysed. All your semester data at the edge of your finger
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title Summary
-            %p A summarizing table demonstating all your grades!
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title Graduation
-            %p Do you wander if you are elegible for graduation! The answer is here!
-      .box.column.is-2
-        %article.media
-          .media-content
-            %h5.title Plans for more
-            %p We plan to add more functionality like forecasting your eramus and practise.
-    .column.is-1.has-text-centered#next
-      %a.button.is-primary.home-title.next
-        %i.fa.fa-angle-right
-  .columns
-    .column.is-6.is-offset-4
-      %nav.pagination.is-small
-        %ul.pagination-list
-.container
-  .column.is-5.is-offset-3
-    %h3.has-text-centered.is-size-3.has-text-weight-semibold.has-text-grey-dark Subscribe
-    %form
-      .field
-        .control.has-icons-left
-          %input.input.is-primary{type: 'text', placeholder: 'Email'}
-          %span.icon.is-small-is-left
-            %i.fa.fa-envelope
-
-
-:javascript
-  $(document).ready(function(){
-    $('.carousel').slick({
-      dots: true,
-      dotsClass: 'pagination-list',
-      variableWidth: false,
-      adaptiveHeight: false,
-      arrows: true,
-      centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 1,
-      prevArrow: $('#prev'),
-      nextArrow: $('#next'),
-      appendDots: $('.pagination-list'),
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
-        }
-        ]
-        })
-  });
-:javascript
-  $(document).ready(function(){
-    $('.pagination-list li').addClass('pagination-link');
-  });
+.container.features
+  .is-centered#feat
+    %h2.has-text-centered.is-size-2.has-text-grey What do we do
+  .columns.has-equal-heights
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-superscript.fa-4x.home-title.has-text-danger
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 GPA Calculator
+        .box-body
+          %p We can't solve problems by using the same kind of thinking we used when we created them
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-percent.fa-4x.home-title.has-text-info
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 Stats
+        .box-body
+          %p See how you are going and what are your weak spots in fancy colourful graphs
+    .column.is-4
+      .box.has-icon.is-centered
+        .box-icon.has-text-centered.home-title
+          %i.fa.fa-graduation-cap.fa-4x.home-title.has-text-success
+        %h3.box-title.has-text-centered.has-text-primary.is-size-4 Graduation
+        .box-body
+          %p Do you wander if you are elegible for graduation? You got the answer!

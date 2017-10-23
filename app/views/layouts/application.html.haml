@@ -78,6 +78,7 @@
           %br
           Picks by
           %a freepick
-  -if notice
-    %script
-      new Noty({type: 'success', layout: 'topRight',text: '#{notice}'}).show();
+  -if flash
+    - flash.each do |key, val|
+      %script
+        new Noty({type: #{key}, layout: 'topRight',text: '#{val}'}).show();

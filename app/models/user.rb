@@ -2,17 +2,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
-  has_many :lessons
-
-  before_create do
-    create_user_lessons
-  end
+  has_many :lessons, dependent: :destroy
+  after_create :create_user_lessons
 
   def create_user_lessons
-    Lesson.all.each do |les|
-      @lesson = lessons.new
-      @lesson = les
-      @lesson.save!
+    Subject.all.each do |les|
+      self.lessons.create!(les.attributes)
     end
   end
 end

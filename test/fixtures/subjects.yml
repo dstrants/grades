@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  ects: 1
+  semester: 1
+  ltype: 1
+
+two:
+  name: MyString
+  code: MyString
+  ects: 1
+  semester: 1
+  ltype: 1

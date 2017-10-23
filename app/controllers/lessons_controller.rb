@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   def index; end
 
   def new
-    @lessons = Lesson.all
+    @lessons = current_user.lessons.all
   end
 
   def semesters
@@ -18,10 +18,10 @@ class LessonsController < ApplicationController
   def stats; end
 
   def add
-    @basics = Lesson.where(ltype: 2)
-    @generals = Lesson.where(ltype: 3)
-    @specials = Lesson.where(ltype: 4)
-    @thesis = Lesson.where(ltype: 5)
+    @basics = Subject.where(ltype: 2)
+    @generals = Subject.where(ltype: 3)
+    @specials = Subject.where(ltype: 4)
+    @thesis = Subject.where(ltype: 5)
   end
 
   def submit_grades

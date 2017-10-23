@@ -11,9 +11,6 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'grades@wiseinno.tech'
-  Rails.application.config.to_prepare do
-    Devise::RegistrationsController.layout(proc) { |controller| user_signed_in? ? 'application' : 'devise' }
-  end
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

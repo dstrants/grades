@@ -2,6 +2,7 @@
   "name": "grades",
   "private": true,
   "dependencies": {
+    "bulma-slider": "^0.0.2",
     "noty": "^3.1.3"
   }
 }

@@ -4,9 +4,7 @@ class LessonsController < ApplicationController
     @list = current_user.lessons.where(selected: true).group_by(&:semester)
   end
 
-  def grades
-    @lessons = current_user.lessons.all
-  end
+  def grades; end
 
   def semesters
     @semesters = current_user.lessons.where(selected: true).group_by(&:semester)

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.slick
 //= require noty/lib/noty
+//= require bulma-slider/slider
 //= require turbolinks
 //= require_tree .
 $( function() {

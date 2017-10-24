@@ -81,4 +81,4 @@
   -if flash
     - flash.each do |key, val|
       %script
-        new Noty({type: #{key}, layout: 'topRight',text: '#{val}'}).show();
+        new Noty({type: #{key == 'notice' ? 'success' : key}, layout: 'topRight',text: '#{val}'}).show();

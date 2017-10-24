@@ -1,23 +1,25 @@
-%div.container
+.container
   = form_tag '/lessons/submit_grades', method: 'post' do
     %input.button.is-primary.is-pulled-right{type: 'submit'}
-    .columns
-      .column.is-half.is-offset-one-quarter.box.has-text-centered{id: 'accordion'}
-        -for i in 1..8
-          %h3.title Semester #{i}
-          %div
+    .columns.is-multiline
+      - for i in 1..8
+        .column.is-4
+          .box.grader
+            %h3.title.has-text-centered.is-primary Semester #{i}
+            %hr
             - current_user.lessons.where(semester: i, selected: true).each do |les|
-              %label.label #{les.name}
-              %div.select.is-info
-                %select.select.is-multiple{id: "lesson#{les.id}", name: les.name}
-                  - for i in 1..10
-                    - if les.grade == i
-                      %option{value: i, selected: 'selected'} #{i}
-                    - else
-                      %option{value: i } #{i}
+              %h5.subtitle.is-grey= les.name
+              %input.slider.is-fullwidth.is-primary.has-output{id: "lesson#{les.id}", step: 1, min: '0', max: '10', value: "#{les.grade}", type: 'range', name: les.name}
+              %output{for: "lesson#{les.id}"}= les.grade
+
+
 :javascript
-  $( function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
+  $( function(){
+    $('.slider').on('change', function(){
+      if (parseInt($(this)[0].value) >= 5){
+        $(this).removeClass("is-danger is-primary").addClass("is-success");
+      } else
+        $(this).removeClass("is-success is-primary").addClass("is-danger");
+        console.log($(this)[0].value)
     });
-  } );
+  });

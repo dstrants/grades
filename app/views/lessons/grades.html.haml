@@ -1,6 +1,6 @@
 .container
   = form_tag '/lessons/submit_grades', method: 'post' do
-    %input.button.is-primary.is-pulled-right{type: 'submit'}
+    %input.button.is-success.is-pulled-right#grades_submit{type: 'submit'}
     .columns.is-multiline
       - for i in 1..8
         .column.is-4

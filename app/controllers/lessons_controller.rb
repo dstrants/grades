@@ -6,16 +6,14 @@ class LessonsController < ApplicationController
 
   def grades; end
 
-  def semesters
-    @semesters = current_user.lessons.where(selected: true).group_by(&:semester)
-  end
-
   def show_semester
-    @semesters = current_user.lessons.where(selected: true).group_by(&:semester)
-    @semester = @semesters[params[:id].to_i]
+    @semesters = current_user.lessons.where(selected: true)
+                             .group_by(&:semester)[params[:id].to_i]
   end
 
-  def stats; end
+  def stats
+    @lessons = current_user.lessons.where(selected: true)
+  end
 
   def add
     @basics = current_user.lessons.where(ltype: 2)

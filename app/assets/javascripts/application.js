@@ -15,6 +15,8 @@
 //= require jquery.slick
 //= require noty/lib/noty
 //= require bulma-slider/slider
+//= require Chart.bundle
+//= require chartkick
 //= require turbolinks
 //= require_tree .
 $( function() {

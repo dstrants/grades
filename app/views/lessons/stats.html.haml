@@ -1,0 +1,18 @@
+.container
+  .columns.ismultiline
+    .column.is-8.is-offset-1
+      %h3.has-text-centered Your Grades
+      = area_chart @lessons.group(:name).maximum(:grade), colors: ["#008ed6"]
+    .column.is-3
+      %h3.has-text-centered Passed Classes
+      = easy_as_pie (@lessons.where(grade: [5..10], selected: true).count/@lessons.where(selected:true).count.to_f)*100, 'Lessons'
+
+
+:javascript
+  $(document).ready(function() {
+    $('.chart').easyPieChart({
+        barColor: '#008ed6',
+        lineWidth: 8,
+        scaleColor: false
+    });
+  });

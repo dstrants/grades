@@ -8,3 +8,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     =yield
+    -if flash
+      - flash.each do |key, val|
+        %script
+          - if key == 'info' || key == 'notice'
+            new Noty({type: 'information', layout: 'topRight', text: '#{val}'}).show();
+          - else
+            new Noty({type: '#{key}', layout: 'topRight', text: '#{val}'}).show();

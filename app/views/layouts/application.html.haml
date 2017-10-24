@@ -29,9 +29,9 @@
                   %a.navbar-item{href: about_path}
                     About
                   %a.navbar-item{href: 'https://twitter.com/wise_inno'}
-                    %i.fa.fa-github
-                  %a.navbar-item{href: 'https://github.com/dstrants'}
                     %i.fa.fa-twitter
+                  %a.navbar-item{href: 'https://github.com/dstrants'}
+                    %i.fa.fa-github
                   - if user_signed_in?
                     %span.navbar-item
                       %a.button.is-primary.is-inverted{href: destroy_user_session_path}
@@ -56,9 +56,11 @@
                   %li
                     %a{href: lessons_path} Overview
                   %li
-                    %a{href: lessons_semesters_path} Semesters
+                    %a{href: "#{lessons_semesters_path}/1"} Semesters
                   %li
                     %a{href: lessons_stats_path} Stats
+                  %li
+                    %a{href: lessons_grades_path} Grades
                   %li
                     %a{href: lessons_add_path} Add
                   %li
@@ -81,4 +83,7 @@
   -if flash
     - flash.each do |key, val|
       %script
-        new Noty({type: #{key == 'notice' ? 'success' : key}, layout: 'topRight',text: '#{val}'}).show();
+        - if key == 'info' || key == 'notice'
+          new Noty({type: 'information', layout: 'topRight', text: '#{val}'}).show();
+        - else
+          new Noty({type: '#{key}', layout: 'topRight', text: '#{val}'}).show();

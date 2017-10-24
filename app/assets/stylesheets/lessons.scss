@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //Mixins
+@import 'jquery.easy-pie-chart';
 @mixin vertical-alignment($position: relative) {
   position: $position;
   top: 50%;
@@ -19,4 +20,14 @@
   h5.subtitle{
     font-size: 1rem;
   }
+}
+
+#grades_submit{
+  margin-right: -20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0px 2px 5px #666;
 }

@@ -11,6 +11,10 @@ class User < ApplicationRecord
     end
   end
 
+  def s_avg
+    lessons.where(selected: true, grade: [5..10]).average(:grade)
+  end
+
   def basics?
     lessons.where(ltype: 2, selected: true).count > 3
   end
@@ -29,6 +33,10 @@ class User < ApplicationRecord
 
   def ects?
     lessons.where(selected: true).sum(:ects) > 239
+  end
+
+  def ects
+    lessons.where(selected: true, grade: [5..10]).sum(:ects)
   end
 
   def selections?

@@ -1,17 +1,77 @@
+%nav.level.stats
+  .level-item.has-text-centered
+    %div
+      %p.heading Περασμενα
+      %p.title.has-text-success= passed.count
+  .level-item.has-text-centered
+    %div
+      %p.heading Χρωστουμενα
+      %p.title.has-text-danger= current_user.thesis? ? 42 - passed.count : 44 - passed.count
+  .level-item.has-text-centered
+    %div
+      %p.heading ECTS
+      %p.title.has-text-info= current_user.ects
+  .level-item.has-text-centered
+    %div
+      %p.heading ΒΑΘΜΟΣ
+      %p.title= current_user.s_avg.to_s.first(4)
+%hr.major
 .container
-  .columns.ismultiline
-    .column.is-8.is-offset-1
+  .columns.is-multiline
+    .column.is-12
       %h3.has-text-centered Your Grades
-      = area_chart @lessons.group(:name).maximum(:grade), colors: ["#008ed6"]
-    .column.is-3
-      %h3.has-text-centered Passed Classes
-      .columns
-        .column.is-6
-          = easy_as_pie (@lessons.where(grade: [5..10], selected: true).count/@lessons.where(selected:true).count.to_f)*100, 'Lessons'
-        .column.is-6
-          = easy_as_pie (@lessons.where(grade: [5..10], selected: true).sum(:ects)/@lessons.where(selected:true).sum(:ects).to_f)*100, 'ECTS'
-    .column.is-4
-
+      = area_chart @lessons.group(:name).maximum(:grade), colors: ["#008ed6"], library: {scales: { xAxes: [ { display: false  } ]} }
+    .column.is-6
+      %h3.has-text-centered Per Semester Avg
+      // passed is a helper method
+      = line_chart passed.group(:semester).average(:grade), xtitle: 'Semesters', colors: ["hsl(171, 100%, 41%)"], min: '5'
+    .column.is-6
+      %h3.has-text-centered Performance
+      .box
+        %h5
+          Best Semester:
+          %strong.has-text-success #{passed.group(:semester).average(:grade).max_by(&:last).first}
+          with avg
+          %strong.has-text-success #{passed.group(:semester).average(:grade).max_by(&:last).last}
+        %h5
+          Worst Semster:
+          %strong.has-text-danger #{passed.group(:semester).average(:grade).min_by(&:last).first}
+          with avg
+          %strong.has-text-danger #{passed.group(:semester).average(:grade).min_by(&:last).last}
+        %h5
+          Winter Semesters
+          %strong= avg_winter_semesters.to_s.first(4)
+        %h5
+          Summer Semesters
+          %strong= avg_summer_semesters.to_s.first(4)
+        %h5
+          Κορμού
+          %strong= avg_std.to_s.first(4)
+        %h5
+          Βασικής
+          %strong= avg_basic.to_s.first(4)
+        %h5
+          Γενικής
+          %strong= avg_gen.to_s.first(4)
+        %h5
+          Ειδικής
+          %strong= avg_sp.to_s.first(4)
+    .column.is-6
+      %h3.has-text-centered Grades Distribution
+      .box
+        %h5 Most Frequent: #{passed.group(:grade).count.max_by(&:last).first} (#{passed.group(:grade).count.max_by(&:last).last})
+        %h5 Most Infrequent: #{passed.group(:grade).count.min_by(&:last).first} (#{passed.group(:grade).count.min_by(&:last).last})
+    .column.is-6
+      %h3.has-text-centered Grades Frequency
+      = pie_chart passed.group(:grade).count, colors: ["hsl(171, 100%, 41%)", "hsl(217, 71%, 53%)", "hsl(141, 71%, 48%)", 'hsl(48, 100%, 67%)','hsl(348, 100%, 61%)','hsl(204, 86%, 53%)'], donut: true, legend: false
+    .column.is-8.is-offset-2
+      %h3.has-text-centered By Lesson Category
+      .content
+        %ul
+          - category_avg.each do |cat, val|
+            %li
+              %strong= cat + ':'
+              = val
 
 :javascript
   $(document).ready(function() {

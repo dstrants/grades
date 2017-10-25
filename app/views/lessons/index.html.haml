@@ -51,7 +51,6 @@
             %p.subtitle Γενικής Επιλογής: #{Lesson.where(selected: true, ltype: 3).count}
             %p.subtitle Ειδικής Επιλογής: #{Lesson.where(selected: true, ltype: 4).count}
         %div.tile.is-parent
-          %article.tile.is-child.notification{class: Lesson.thesis? || Lesson.no_thesis? ? 'is-success' : 'is-danger'}
+          %article.tile.is-child.notification{class: current_user.graduated? ? 'is-success' : 'is-danger'}
             %p.title Δυνατότα Αποφοίτησης?
-            %p.subtitle Πτυχιακή #{Lesson.thesis?}
-            %p.subtitle Χωρίς Πτυχιακή #{Lesson.no_thesis?}
+            %p.subtitle Πτυχιακή #{current_user.eligible?}

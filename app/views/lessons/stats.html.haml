@@ -5,7 +5,12 @@
       = area_chart @lessons.group(:name).maximum(:grade), colors: ["#008ed6"]
     .column.is-3
       %h3.has-text-centered Passed Classes
-      = easy_as_pie (@lessons.where(grade: [5..10], selected: true).count/@lessons.where(selected:true).count.to_f)*100, 'Lessons'
+      .columns
+        .column.is-6
+          = easy_as_pie (@lessons.where(grade: [5..10], selected: true).count/@lessons.where(selected:true).count.to_f)*100, 'Lessons'
+        .column.is-6
+          = easy_as_pie (@lessons.where(grade: [5..10], selected: true).sum(:ects)/@lessons.where(selected:true).sum(:ects).to_f)*100, 'ECTS'
+    .column.is-4
 
 
 :javascript

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //Mixins
 @import 'bulma';
+@import 'bulma-tooltip/tooltip';
 @import 'jquery.easy-pie-chart';
 @mixin vertical-alignment($position: relative) {
   position: $position;
@@ -53,4 +54,9 @@ hr.major:before {
   border-color: $light;
   border-width: 0 0 1px 0;
   border-radius: 20px;
+}
+
+#status-table{
+  border-radius: 10px;
+  text-align: center;
 }

@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bulma-slider": "^0.0.2",
+    "bulma-tooltip": "^0.0.4",
     "noty": "^3.1.3"
   }
 }

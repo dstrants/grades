@@ -82,4 +82,7 @@ module LessonsHelper
     current_user.lessons.where(grade: [5..10], selected: true)
   end
 
+  def icon_generator(cat)
+    cat ? 'check-square-o has-text-success' : 'times has-text-warning'
+  end
 end

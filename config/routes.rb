@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'lessons/semesters' => 'lessons#semesters'
   get 'lessons/semesters/:id' => 'lessons#show_semester'
   get 'lessons/stats' => 'lessons#stats'
+  get 'lessons/status' => 'lessons#status'
   get '/about' => 'main#about'
   root 'main#index'
 end

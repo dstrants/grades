@@ -11,6 +11,8 @@ class LessonsController < ApplicationController
                              .group_by(&:semester)[params[:id].to_i]
   end
 
+  def status; end
+
   def stats
     @lessons = current_user.lessons.where(selected: true)
   end

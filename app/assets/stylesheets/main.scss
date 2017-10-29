@@ -46,3 +46,9 @@
     margin-bottom: 10px;
   }
 }
+
+.columns.has-equal-heights{
+  &:last-child{
+    margin-right: 20px;
+  }
+}

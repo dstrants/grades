@@ -8,6 +8,19 @@ module LessonsHelper
     @avg = @sum / @lessons.sum(:ects) unless @lessons.sum(:ects).zero?
   end
 
+  def avg_color
+    case avg_calc
+    when 5..6
+      'has-text-info'
+    when 6.01..7
+      'has-text-primary'
+    when 7.01..8
+      'has-text-warning'
+    when 8.01..10
+      'has-text-success'
+    end
+  end
+
   def sem_avg(i)
     current_user.lessons.where(semester: i, grade: [5..10]).average(:grade)
   end
@@ -28,15 +41,22 @@ module LessonsHelper
     @sum / 4.0
   end
 
-  #def category_avg
-    #@cats = current_user.lessons.map{ |l| l.code.first(3) }.uniq
-    #@averages = {}
-    #@cats.each do |cat|
-      #@avg = current_user.lessons.where('lesson.code.first(3) == cat', selected: true, grade: #[5..10]).count
-      #@averages[cat] = @avg
-  #  end
-  #  @averages
-  #end
+  def category_avg
+    @cats = current_user.lessons.map { |l| l.code.first(3) }.uniq
+    @averages = {}
+    @samps = []
+    @cats.each do |cat|
+      current_user.lessons.where(selected: true, grade: [5..10]).each { |les| @samps << les if les.code.first(3) == cat }
+      @averages[cat] = arr_avg(@samps)
+    end
+    @averages
+  end
+
+  def arr_avg(arr)
+    @sum = 0
+    arr.each { |les| @sum += les.grade }
+    @sum.to_f / arr.count
+  end
 
   def avg_std
     current_user.lessons.where(ltype: 1, grade: [5..10]).average(:grade)

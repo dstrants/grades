@@ -1,3 +1,4 @@
+- @usr = current_user
 .container
   %section.section
     %div.tile.is-vertical.is-ancestor
@@ -5,19 +6,20 @@
         %div.tile
           %div.tile.is-parent.is-vertical
             %article.tile.is-child.notification.is-primary
-              %p.title Μέσος Όρος:
-              %p.subtitle= avg_calc.nil? ? 'Πρόσθεσε Μαθήματα':avg_calc.to_s.first(4)
+              %p.title
+                Μέσος Όρος:
+                %strong.bright{class: avg_color} #{avg_calc.nil? ? 'Πρόσθεσε Μαθήματα':avg_calc.to_s.first(4)}
             %article.tile.is-child.notification.is-info
-              %p.subtitle Σύνολο Μαθημάτων: #{current_user.lessons_total}
-              %p.subtitle Περασμένα/Χρωστούμενα: (#{current_user.passed}/#{current_user.lessons_total - current_user.passed})
+              %p.subtitle Σύνολο Μαθημάτων: #{@usr.lessons_total}
+              %p.subtitle Περασμένα/Χρωστούμενα: (#{@usr.passed}/#{@usr.lessons_total - @usr.passed})
               %p.subtitle Υποχρεωτικά: 31
-              %p.subtitle Bασικής Επιλογής: #{current_user.basics}
-              %p.subtitle Γενικής Επιλογής: #{current_user.generals}
-              %p.subtitle Ειδικής Επιλογής: #{current_user.specials}
+              %p.subtitle Bασικής Επιλογής: #{@usr.basics}
+              %p.subtitle Γενικής Επιλογής: #{@usr.generals}
+              %p.subtitle Ειδικής Επιλογής: #{@usr.specials}
           %div.tile.is-parent
-            %article.tile.is-child.notification{class: current_user.graduated? ? 'is-success' : 'is-danger'}
+            %article.tile.is-child.notification{class: @usr.graduated? ? 'is-success' : 'is-danger'}
               %p.title Δυνατότα Αποφοίτησης?
-              %p.subtitle Πτυχιακή #{current_user.eligible?}
+              %p.subtitle Πτυχιακή #{@usr.eligible?}
               %p.subtitle
                 %table.table.is-fullwidth.has-text-centered#status-table
                   %thead
@@ -31,38 +33,38 @@
                         %a.tooltip.is-tooltip-success{data: { tooltip: "Εχουν δηλωθεί όλα τα υποχρεωτικά" } }
                           %i.fa{class: "fa-#{icon_generator(true)}"}
                       %td.has-text-centered
-                        %a.tooltip{class: (current_user.standards? ? 'is-tooltip-success' : 'is-tooltip-danger'), data: { tooltip: (current_user.standards? ? 'Έχεις περάσει όλα τα υποχρεωτικά' : "Πρέπει να περάσεις ακόμη #{31 - current_user.standards}") } }
-                          %i.fa{class: "fa-#{icon_generator(current_user.standards?)}"}
+                        %a.tooltip{class: (@usr.standards? ? 'is-tooltip-success' : 'is-tooltip-danger'), data: { tooltip: (@usr.standards? ? 'Έχεις περάσει όλα τα υποχρεωτικά' : "Πρέπει να περάσεις ακόμη #{31 - @usr.standards}") } }
+                          %i.fa{class: "fa-#{icon_generator(@usr.standards?)}"}
                     %tr
                       %td Βασικής
                       %td.has-text-centered
-                        %a.tooltip{class: (current_user.basics? ? 'is-tooltip-success' : 'is-tooltip-danger'), data: { tooltip: (current_user.basics? ? 'Έχεις δηλώσει όλα τα ΒΕ' : "Πρέπει να δηλώσεις ακόμη #{4 - current_user.basics}") } }
-                          %i.fa{class: "fa-#{icon_generator(current_user.basics?)}"}
+                        %a.tooltip{class: (@usr.basics? ? 'is-tooltip-success' : 'is-tooltip-danger'), data: { tooltip: (@usr.basics? ? 'Έχεις δηλώσει όλα τα ΒΕ' : "Πρέπει να δηλώσεις ακόμη #{4 - @usr.basics}") } }
+                          %i.fa{class: "fa-#{icon_generator(@usr.basics?)}"}
                       %td.has-text-centered
-                        %a.tooltip{class: (current_user.basics_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.basics_passed? ? 'Έχεις περάσει όλα τα ΒΕ' : "Πρέπει να περάσεις ακόμη #{4 - current_user.basics}") } }
-                          %i.fa{class: "fa-#{icon_generator(current_user.basics_passed?)}"}
+                        %a.tooltip{class: (@usr.basics_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.basics_passed? ? 'Έχεις περάσει όλα τα ΒΕ' : "Πρέπει να περάσεις ακόμη #{4 - @usr.basics}") } }
+                          %i.fa{class: "fa-#{icon_generator(@usr.basics_passed?)}"}
                       %tr
                         %td Γενικής
                         %td.has-text-centered
-                          %a.tooltip{class: (current_user.generals? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.generals? ? 'Έχεις δηλώσει όλα τα ΓΕ' : "Πρέπει να δηλώσεις ακόμη #{3 - current_user.generals}") } }
-                            %i.fa{class: "fa-#{icon_generator(current_user.generals?)}"}
+                          %a.tooltip{class: (@usr.generals? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.generals? ? 'Έχεις δηλώσει όλα τα ΓΕ' : "Πρέπει να δηλώσεις ακόμη #{3 - @usr.generals}") } }
+                            %i.fa{class: "fa-#{icon_generator(@usr.generals?)}"}
                         %td.has-text-centered
-                          %a.tooltip{class: (current_user.generals_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.generals_passed? ? 'Έχεις περάσει όλα τα ΓΕ' : "Πρέπει να περάσεις ακόμη #{3 - current_user.basics}") } }
-                            %i.fa{class: "fa-#{icon_generator(current_user.generals_passed?)}"}
+                          %a.tooltip{class: (@usr.generals_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.generals_passed? ? 'Έχεις περάσει όλα τα ΓΕ' : "Πρέπει να περάσεις ακόμη #{3 - @usr.basics}") } }
+                            %i.fa{class: "fa-#{icon_generator(@usr.generals_passed?)}"}
                         %tr
                           %td Ειδικής
                           %td.has-text-centered
-                            %a.tooltip{class: (current_user.specials? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.specials? ? 'Έχεις δηλώσεις όλα τα  EIE' : "Πρέπει να δηλώσεις ακόμη #{3 - current_user.specials}") } }
-                              %i.fa{class: "fa-#{icon_generator(current_user.specials?)}"}
+                            %a.tooltip{class: (@usr.specials? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.specials? ? 'Έχεις δηλώσεις όλα τα  EIE' : "Πρέπει να δηλώσεις ακόμη #{3 - @usr.specials}") } }
+                              %i.fa{class: "fa-#{icon_generator(@usr.specials?)}"}
                           %td.has-text-centered
-                            %a.tooltip{class: (current_user.specials_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.specials_passed? ? 'Έχεις περάσει όλα τα EIE' : "Πρέπει να περάσεις ακόμη #{3 - current_user.specials_passed}") } }
-                              %i.fa{class: "fa-#{icon_generator(current_user.specials_passed?)}"}
-                        - if current_user.thesis?
+                            %a.tooltip{class: (@usr.specials_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.specials_passed? ? 'Έχεις περάσει όλα τα EIE' : "Πρέπει να περάσεις ακόμη #{3 - @usr.specials_passed}") } }
+                              %i.fa{class: "fa-#{icon_generator(@usr.specials_passed?)}"}
+                        - if @usr.thesis?
                           %tr
                             %td Πτυχιακή
                             %td.has-text-centered
-                              %a.tooltip{class: (current_user.thesis? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.thesis? ? 'Έχεις δηλώσει πτυχιακή' : "Πρέπει να δηλώσεις πτυχιακή ή 2 ακόμη ΓΕ ή ΕΙΕ") } }
-                                %i.fa{class: "fa-#{icon_generator(current_user.thesis?)}"}
+                              %a.tooltip{class: (@usr.thesis? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.thesis? ? 'Έχεις δηλώσει πτυχιακή' : "Πρέπει να δηλώσεις πτυχιακή ή 2 ακόμη ΓΕ ή ΕΙΕ") } }
+                                %i.fa{class: "fa-#{icon_generator(@usr.thesis?)}"}
                             %td.has-text-centered
-                              %a.tooltip{class: (current_user.thesis_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (current_user.thesis_passed? ? 'Έχεις περάσει την πτυχιακή' : "Πρέπει να περάσεις πτυχιακή") } }
-                                %i.fa{class: "fa-#{icon_generator(current_user.thesis_passed?)}"}
+                              %a.tooltip{class: (@usr.thesis_passed? ? 'is-tooltip-success' : 'is-tooltip-danger'),data: { tooltip: (@usr.thesis_passed? ? 'Έχεις περάσει την πτυχιακή' : "Πρέπει να περάσεις πτυχιακή") } }
+                                %i.fa{class: "fa-#{icon_generator(@usr.thesis_passed?)}"}

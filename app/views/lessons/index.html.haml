@@ -2,7 +2,7 @@
   %section.hero.is-light.rounded
     .hero-body
       .container.has-text-centered
-        %h1.title Lesson List
+        %h1.title current_user.lessons List
 .column.is-10.is-offset-2
   %section.section
     %table.table
@@ -26,31 +26,12 @@
         %thead
           %th
           %th
-          %th= Lesson.where(semester: sem[0], grade: [5..10]).sum(:ects)
+          %th= current_user.lessons.where(semester: sem[0], grade: [5..10]).sum(:ects)
           %th
-          %th= Lesson.where(semester: sem[0], grade: [5..10]).average(:grade).to_s.first(4)
+          %th= current_user.lessons.where(semester: sem[0], grade: [5..10]).average(:grade).to_s.first(4)
       %thead
         %th Summary
         %th  -
-        %th= Lesson.where(selected: true, grade: [5..10]).sum(:ects)
+        %th= current_user.lessons.where(selected: true, grade: [5..10]).sum(:ects)
         %th  -
-        %th= Lesson.where(selected: true, grade: [5..10]).average(:grade).to_s.first(4)
-%section.section
-  %div.tile.is-vertical.is-ancestor
-    %div.tile.is-vertical.is-8
-      %div.tile
-        %div.tile.is-parent.is-vertical
-          %article.tile.is-child.notification.is-primary
-            %p.title Μέσος Όρος:
-            %p.subtitle= avg_calc.nil? ? 'Πρόσθεσε Μαθήματα':avg_calc.to_s.first(4)
-          %article.tile.is-child.notification.is-info
-            %p.subtitle Σύνολο Μαθημάτων: #{Lesson.where(selected: true).count}
-            %p.subtitle Περασμένα/Χρωστούμενα: (#{Lesson.where(selected: true, grade: [5..10]).count}/#{Lesson.where(selected: true, grade: [0..4]).count})
-            %p.subtitle Υποχρεωτικά: #{Lesson.where(selected: true, ltype: 1).count}
-            %p.subtitle Bασικής Επιλογής: #{Lesson.where(selected: true, ltype: 2).count}
-            %p.subtitle Γενικής Επιλογής: #{Lesson.where(selected: true, ltype: 3).count}
-            %p.subtitle Ειδικής Επιλογής: #{Lesson.where(selected: true, ltype: 4).count}
-        %div.tile.is-parent
-          %article.tile.is-child.notification{class: current_user.graduated? ? 'is-success' : 'is-danger'}
-            %p.title Δυνατότα Αποφοίτησης?
-            %p.subtitle Πτυχιακή #{current_user.eligible?}
+        %th= avg_calc.to_s.first(4)

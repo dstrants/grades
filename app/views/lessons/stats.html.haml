@@ -25,9 +25,9 @@
       %h3.has-text-centered Per Semester Avg
       // passed is a helper method
       = line_chart passed.group(:semester).average(:grade), xtitle: 'Semesters', colors: ["hsl(171, 100%, 41%)"], min: '5'
-    .column.is-6
-      %h3.has-text-centered Performance
+    .column.is-6.box-container
       .box
+        %h3.has-text-centered Performance
         %h5
           Best Semester:
           %strong.has-text-success #{passed.group(:semester).average(:grade).max_by(&:last).first}
@@ -56,22 +56,31 @@
         %h5
           Ειδικής
           %strong= avg_sp.to_s.first(4)
-    .column.is-6
-      %h3.has-text-centered Grades Distribution
+    .column.is-6.box-container
       .box
+        %h3.has-text-centered Grades Distribution
         %h5 Most Frequent: #{passed.group(:grade).count.max_by(&:last).first} (#{passed.group(:grade).count.max_by(&:last).last})
         %h5 Most Infrequent: #{passed.group(:grade).count.min_by(&:last).first} (#{passed.group(:grade).count.min_by(&:last).last})
     .column.is-6
       %h3.has-text-centered Grades Frequency
       = pie_chart passed.group(:grade).count, colors: ["hsl(171, 100%, 41%)", "hsl(217, 71%, 53%)", "hsl(141, 71%, 48%)", 'hsl(48, 100%, 67%)','hsl(348, 100%, 61%)','hsl(204, 86%, 53%)'], donut: true, legend: false
-    .column.is-8.is-offset-2
+    .column.is-8
       %h3.has-text-centered By Lesson Category
-      .content
-        %ul
-          - category_avg.each do |cat, val|
-            %li
-              %strong= cat + ':'
-              = val
+      = area_chart category_avg, min: 5, library: {scales: { xAxes: [ { display: false  } ]} }
+    .column.is-4.box-container
+      .box
+        %h3.has-text-centered Best - Worst Categories
+        - @best = category_avg.max_by {|key, val| val}
+        %h5
+          Best Category #{@best[0]} with
+          %strong= @best[1].to_s.first(4)
+        - @worst = category_avg.min_by {|key, val| val}
+        %h5
+          Worst Category #{@worst[0]} with
+          %strong= @worst[1].to_s.first(4)
+        %h5
+          Categories Count
+          %strong= category_avg.count
 
 :javascript
   $(document).ready(function() {

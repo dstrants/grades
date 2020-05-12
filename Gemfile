@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # custom additions
 gem 'activeadmin'
 gem 'airrecord'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bulma-rails'
 gem 'chartkick'
 gem 'devise'
